@@ -224,10 +224,13 @@ main section.show ~ section.show{padding-top:30px}
 @media (max-width:430px){ .more{grid-template-columns:1fr} }
 
 .banner{width:100%; height:auto; aspect-ratio:2/1; object-fit:cover; border-radius:16px; margin-top:16px; box-shadow:var(--shadow)}
-.gal{display:flex; gap:10px; overflow-x:auto; margin-top:14px; padding-bottom:6px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch}
-.gal figure{flex:0 0 150px; margin:0; scroll-snap-align:start}
-.gal img{width:150px; height:112px; object-fit:cover; border-radius:12px; border:1px solid var(--line)}
-.gal figcaption{font-size:12.5px; color:var(--muted); margin-top:4px; text-align:center}
+.plist{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px}
+.pc{background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; min-width:0}
+.pc img{width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block}
+.pc div{padding:9px 10px 11px}
+.pc b{display:block; font-size:15px; line-height:1.35}
+.pc span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
+@media (max-width:360px){ .plist{grid-template-columns:1fr} }
 .etc{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:8px}
 .etc li{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:14.5px; color:var(--muted)}
 .etc li b{color:var(--fg); margin-right:6px}
@@ -291,8 +294,8 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <a class="btn soon" id="bookBtn" href="#tickets" aria-describedby="bookNote"><span><b>사전예매</b><br>10월 2주 오픈 예정</span></a>
     <a class="btn sky" href="#way">🚗 오시는 길</a>
   </div>
-  <p class="note" id="bookNote">사전예매는 네이버예약에서 열립니다. 아이 자유이용권 3,000원(70% 할인), 수량 한정.</p>
-  <p class="lead" style="margin-top:16px">보물섬에 전해지던 보물지도가 찢어져 테마파크 곳곳에 흩어졌어요. 아이가 탐험대원이 되어 미션을 통과할 때마다 지도 조각이 모이고, 5조각이 모이면 보물상자가 열립니다. 하루 종일 뛰놀고, 보고, 만들고, 먹는 가족 나들이 축제예요.</p>
+  <p class="note" id="bookNote">사전예매는 네이버예약에서 열립니다. 자유이용권 3,000원(70% 할인), 수량 한정.</p>
+  <p class="lead" style="margin-top:16px">보물섬에 전해지던 보물지도가 찢어져 테마파크 곳곳에 흩어졌어요. 탐험대원이 되어 미션을 통과할 때마다 지도 조각이 모이고, 5조각이 모이면 보물상자가 열립니다. 하루 종일 뛰놀고, 보고, 만들고, 먹는 가족 나들이 축제예요.</p>
 </section>
 
 <section id="tickets">
@@ -305,22 +308,23 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
       <div class="d">공연·영화·플레이그라운드·플프마켓·먹거리존은 누구나</div>
     </div>
     <div class="tile hi">
-      <div class="k">미션투어 자유이용권 (아이)</div>
+      <div class="k">미션투어 자유이용권</div>
       <div class="v sm">10,000원</div>
-      <div class="d"><b>사전예매 3,000원</b><br>현장 구매는 티켓부스 1(탐험본부 옆)에서 현금만</div>
+      <div class="d"><b>사전예매 3,000원</b> · 끊은 사람은 어른도 디지털 미션투어 + 혜택<br>현장 구매는 티켓부스 1(탐험본부 옆)에서 현금만</div>
     </div>
     <div class="tile">
       <div class="k">동행 어른 · 36개월 미만</div>
       <div class="v">무료</div>
-      <div class="d">36개월 미만은 미션 대신 영유아 놀이존</div>
+      <div class="d">이용권 없이 입장만 · 36개월 미만은 미션 대신 영유아 놀이존</div>
     </div>
   </div>
   <div class="incl"><b>자유이용권에 들어 있어요</b> — 디지털 탐험여권 · 미션 스테이션 8곳 · 기본 무료체험 · 완주 가챠 1회 · 키즈 웨건 무료 대여(한정수량)</div>
+  <img class="banner" src="img/family.jpg" alt="손목밴드를 찬 엄마·아빠·아이가 함께 미션을 하는 모습" width="1200" height="600" loading="lazy">
 </section>
 
 <section id="how">
   <div class="eyebrow">노는 법</div>
-  <h2>딱 세 단계면 보물상자가 열려요</h2>
+  <h2>디지털 미션투어, 딱 세 단계</h2>
   <img class="banner" src="img/qr.jpg" alt="탐험본부에서 휴대폰으로 QR을 찍어 여권을 등록하는 가족" width="1200" height="600">
   <div class="steps">
     <div class="step"><div class="n">1</div><div><h3>탐험본부에서 여권 만들기</h3><p>농촌테마공원 실내(1구역) 탐험본부에서 QR을 찍으면 보호자 휴대폰에 디지털 탐험여권이 생겨요. 앱 설치는 없습니다. 아이 손목에는 미아 방지 손목밴드를 채워 드려요.</p></div></div>
@@ -331,9 +335,10 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
 </section>
 
 <section id="missions">
-  <div class="eyebrow">미션 스테이션 8곳</div>
-  <h2>지도 조각이 숨어 있는 곳</h2>
-  <p class="lead">모두 실내 위주라 비가 와도 그대로 진행돼요. 소요시간은 한 가족 기준이에요.</p>
+  <div class="eyebrow">디지털 미션투어 · 스탬프투어</div>
+  <h2>QR 스탬프 8곳, 5곳이면 지도 완성</h2>
+  <p class="lead">미션투어 자유이용권을 끊으면 보호자 휴대폰으로 QR 스탬프를 모으는 디지털 스탬프투어예요. 앱 설치 없음, 대부분 실내라 비가 와도 그대로. 소요시간은 한 가족 기준이에요.</p>
+  <img class="banner" src="img/mission-banner.jpg" alt="휴대폰 화면에서 보물지도 조각이 맞춰지는 모습을 보는 가족" width="1200" height="600">
   <div class="cards">
     <article class="card"><div class="ph"><img src="img/s1.jpg" alt="그린도서관 내부"></div><div class="b"><div class="no"><i>S1</i>3구역 그린도서관</div><h3>이야기 보물창고</h3><div class="where">실내 · 상시</div><p class="what">지정 그림책에서 보물 단서(그림·문장)를 찾아 QR 퀴즈에 입력해요. 같은 자리에서 그림책 공예 유료체험도 열려요.</p><div class="meta"><span class="tag">약 10분</span><span class="tag in">실내</span></div></div></article>
     <article class="card"><div class="ph"><img src="img/s2.jpg" alt="농촌테마공원 실내"></div><div class="b"><div class="no"><i>S2</i>1구역 농촌테마공원 실내</div><h3>탐험대 출정식 포토존</h3><div class="where">탐험본부 바로 옆 · 상시</div><p class="what">탐험가 포토존에서 출정 인증! 여권을 만든 직후 받는 첫 스탬프예요. 뛰지 않기·조용히 관찰하기 같은 탐험 규칙도 여기서 배워요.</p><div class="meta"><span class="tag">약 3분</span><span class="tag in">실내</span></div></div></article>
@@ -394,11 +399,11 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <div class="row" data-s="11:00" data-e="11:30"><div class="t">11:00</div><div class="p"><b>버블 앤 풍선</b><span>오프닝 공연 · 비눗방울과 풍선아트</span></div><div class="l">잔디 A</div></div>
     <div class="row" data-s="11:30" data-e="11:45"><div class="t">11:30</div><div class="p"><b>레크레이션 타임 ①</b><span>수확왕 결정전 1회차 현장 접수</span></div><div class="l">잔디 B</div></div>
     <div class="row" data-s="11:45" data-e="12:35"><div class="t">11:45</div><div class="p"><b>수확왕 결정전 1회차</b><span>가족팀 농산물 운동회 · 회당 15팀</span></div><div class="l">잔디 B</div></div>
-    <div class="row" data-s="12:35" data-e="13:00"><div class="t">12:35</div><div class="p"><b>천천히 먹기 대결 1회</b><span>어른 참가 · 가장 천천히 다 먹는 부모가 우승</span></div><div class="l">잔디 A</div></div>
+    <div class="row" data-s="12:35" data-e="13:00"><div class="t">12:35</div><div class="p"><b>불닭볶음면 천천히 먹기 1회</b><span>어른 참가 · 가장 천천히 다 먹는 부모가 우승</span></div><div class="l">잔디 A</div></div>
     <div class="row" data-s="13:00" data-e="13:30"><div class="t">13:00</div><div class="p"><b>키즈댄스</b><span>어린이 공연</span></div><div class="l">잔디 A</div></div>
     <div class="row" data-s="13:30" data-e="13:50"><div class="t">13:30</div><div class="p"><b>레크레이션 타임 ②</b><span>수확왕 결정전 2회차 현장 접수</span></div><div class="l">잔디 B</div></div>
     <div class="row" data-s="13:50" data-e="14:50"><div class="t">13:50</div><div class="p"><b>수확왕 결정전 2회차</b><span>참가팀 모두 농산물 선물</span></div><div class="l">잔디 B</div></div>
-    <div class="row" data-s="14:50" data-e="15:40"><div class="t">14:50</div><div class="p"><b>천천히 먹기 대결 2회</b><span>어른 참가 · 현장 접수 10명</span></div><div class="l">잔디 A</div></div>
+    <div class="row" data-s="14:50" data-e="15:40"><div class="t">14:50</div><div class="p"><b>불닭볶음면 천천히 먹기 2회</b><span>어른 참가 · 현장 접수 10명</span></div><div class="l">잔디 A</div></div>
     <div class="row" data-s="15:40" data-e="16:10"><div class="t">15:40</div><div class="p"><b>레크레이션 타임 ③</b><span>솜사탕쇼 전 분위기 올리기</span></div><div class="l">잔디 A</div></div>
     <div class="row" data-s="16:10" data-e="16:50"><div class="t">16:10</div><div class="p"><b>솜사탕쇼</b><span>피날레 · 대형 솜사탕 퍼포먼스와 관객 참여</span></div><div class="l">잔디 A</div></div>
   </div>
@@ -420,21 +425,21 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
 
 <section id="pay">
   <div class="eyebrow">유료체험 · 반값 페이백</div>
-  <h2>체험은 뭘 해도 반값</h2>
+  <h2>유료체험은 뭘 해도 반값</h2>
   <div class="pay">
     <div class="big">결제하면 <em>50%</em>를<br>밀양사랑상품권으로 바로 돌려드려요</div>
     <ul>
-      <li><i>🎨</i><span>프리미엄 유료체험 <b>5,000~10,000원</b> — 그림책 공예(그린도서관), 나만의 동화 만들기(작가의 온실), 자연 공작(바람의정원), 플프마켓 셀러 체험(에코리움 온실). 종목과 가격은 현장에서 안내해요.</span></li>
+      <li><i>🎨</i><span>프리미엄 유료체험 <b>5,000~10,000원</b> — 종목과 가격은 현장에서 안내해요.</span></li>
       <li><i>🎫</i><span>유료체험 티켓부스(2·3)에서 접수하면 그 자리에서 상품권을 드려요. 상품권은 플프마켓·먹거리존과 밀양 가맹점에서 쓸 수 있어요.</span></li>
       <li><i>💳</i><span>결제는 <b>현금·계좌이체</b>로 받아요. 자유이용권 없이도 체험만 따로 할 수 있어요.</span></li>
     </ul>
-    <div class="gal" aria-label="유료체험 예시">
-      <figure><img src="img/p1.jpg" alt="" loading="lazy"><figcaption>그림책 배지·키링</figcaption></figure>
-      <figure><img src="img/p2.jpg" alt="" loading="lazy"><figcaption>미니 그림책 제본</figcaption></figure>
-      <figure><img src="img/p3.jpg" alt="" loading="lazy"><figcaption>책갈피·스탬프 북마크</figcaption></figure>
-      <figure><img src="img/p4.jpg" alt="" loading="lazy"><figcaption>나만의 동화 만들기</figcaption></figure>
-      <figure><img src="img/p5.jpg" alt="" loading="lazy"><figcaption>우드 새모빌·솔방울 둥지</figcaption></figure>
-      <figure><img src="img/p6.jpg" alt="" loading="lazy"><figcaption>플프마켓 셀러 체험</figcaption></figure>
+    <div class="plist" aria-label="유료체험 목록">
+      <div class="pc"><img src="img/p1.jpg" alt="" loading="lazy"><div><b>① 그림책 배지·키링 만들기</b><span>그린도서관 · 부스 2</span></div></div>
+      <div class="pc"><img src="img/p2.jpg" alt="" loading="lazy"><div><b>② 미니 그림책 제본</b><span>그린도서관 · 부스 2</span></div></div>
+      <div class="pc"><img src="img/p3.jpg" alt="" loading="lazy"><div><b>③ 책갈피·스탬프 북마크</b><span>그린도서관 · 부스 2</span></div></div>
+      <div class="pc"><img src="img/p4.jpg" alt="" loading="lazy"><div><b>④ 나만의 동화 만들기</b><span>작가의 온실 · 부스 2</span></div></div>
+      <div class="pc"><img src="img/p5.jpg" alt="" loading="lazy"><div><b>⑤ 우드 새모빌·솔방울 둥지</b><span>바람의정원 · 부스 3</span></div></div>
+      <div class="pc"><img src="img/p6.jpg" alt="" loading="lazy"><div><b>⑥ 플프마켓 셀러 체험</b><span>에코리움 온실 · 부스 3</span></div></div>
     </div>
     <div class="booths">
       <div class="booth"><b>부스 2</b><span>그린도서관 옆 · 그림책 공예, 나만의 동화 만들기</span></div>
@@ -451,6 +456,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <div class="m wide"><img src="img/play.jpg" alt="자이언트 볼, 에어 검투사, 범퍼볼 등 대형 놀이기구" loading="lazy"><div class="b"><h3>플레이그라운드 <span class="w">13구역 중앙잔디</span></h3><p>자이언트 볼 굴리기, 에어 검투사, 범퍼볼, 에어 새총 타겟, 폼 밸런스 블록, 자이언트 젠가. 접수 없이 아이들끼리 마음껏 노는 곳, 안전요원이 지켜봐요.</p></div></div>
     <div class="m"><img src="img/harvest.jpg" alt="쌀가마를 메고 달리는 가족 릴레이" loading="lazy"><div class="b"><h3>수확왕 결정전</h3><div class="w">12구역 잔디 B · 11:45 / 13:50</div><p>허수아비가 움직였습니다, 쌀가마 릴레이, 콩주머니 던지기, 수박서리, 허수아비 꾸미기. 가족팀 회당 15팀, 레크레이션 타임에 현장 접수.</p></div></div>
     <div class="m"><img src="img/cinema.jpg" alt="에코리움 본관 대형 LED 화면" loading="lazy"><div class="b"><h3>영화 상영관</h3><div class="w">6구역 본관 LED · 하루 4회</div><p>토이 스토리 1~4편 무료 상영. 입장권 없이 자유롭게 들어오고 나갈 수 있어요. 계단식 관람석이라 통로에는 앉지 않아요.</p></div></div>
+    <div class="m"><img src="img/slow.jpg" alt="긴 테이블에서 천천히 먹기 대결을 하는 어른들" loading="lazy"><div class="b"><h3>불닭볶음면 천천히 먹기</h3><div class="w">11구역 잔디 A · 12:35 / 14:50</div><p>어른 참가, 회당 현장 접수 10명. 가장 천천히 끝까지 다 먹는 부모가 우승! 빨리 먹기는 반칙, 물과 우유는 준비돼 있어요.</p></div></div>
     <div class="m"><img src="img/food.jpg" alt="먹거리 부스에서 간식을 받는 가족" loading="lazy"><div class="b"><h3>먹거리존</h3><div class="w">14구역 · 그린도서관 옆</div><p>어린이 먹거리와 간단한 식사. 지역 업체가 준비하고, 상품권도 받아요. 잔디에 돗자리 피크닉도 좋아요.</p></div></div>
   </div>
   <ul class="etc">
@@ -466,7 +472,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   <div class="faq">
     <details open><summary>비가 오면 어떻게 되나요?</summary><p>미션 스테이션 8곳이 대부분 실내라 보물찾기는 그대로 진행돼요. 잔디 공연과 게임은 실내로 옮겨서 하고, 바람의정원 야외 프로그램은 실내 프로그램만 진행합니다.</p></details>
     <details><summary>앱을 설치해야 하나요?</summary><p>아니요. 보호자 휴대폰 카메라로 QR만 찍으면 바로 탐험여권이 열려요. 인터넷만 되면 됩니다.</p></details>
-    <details><summary>어른도 미션을 할 수 있나요?</summary><p>미션과 가챠는 아이용이에요. 어른은 무료입장으로 공연·영화·플레이그라운드·플프마켓·먹거리존을 함께 즐기고, 수확왕 결정전과 천천히 먹기 대결에는 직접 참가할 수 있어요. 아이가 여럿이면 아이마다 이용권 한 장씩, 여권과 가챠도 각각이에요.</p></details>
+    <details><summary>어른도 미션을 할 수 있나요?</summary><p>네. 미션투어 자유이용권(10,000원 · 사전예매 3,000원)을 끊으면 어른도 똑같이 디지털 미션투어를 하고 가챠·웨건 같은 혜택을 받아요. 이용권 없이 동행만 하는 어른은 무료입장으로 공연·영화·플레이그라운드·플프마켓·먹거리존을 즐기고, 수확왕 결정전과 불닭볶음면 천천히 먹기 대결에는 참가할 수 있어요. 이용권은 한 사람당 한 장, 여권과 가챠도 각각이에요.</p></details>
     <details><summary>현장에서 카드로 살 수 있나요?</summary><p>현장 구매 자유이용권과 유료체험은 현금·계좌이체만 받아요. 카드로 결제하려면 네이버예약 사전예매를 이용해 주세요(70% 할인까지!).</p></details>
     <details><summary>사전예매 환불은 어떻게 되나요?</summary><p>행사일 7일 전까지 100%, 3일 전까지 90%, 1일 전까지 70%, 당일은 환불이 어려워요. 날씨 등 주최 측 사유로 취소되면 전액 환불합니다.</p></details>
     <details><summary>아이를 잃어버리면요?</summary><p>모든 아이가 번호가 적힌 손목밴드를 차요. 가까운 운영요원에게 말하면 탐험본부에서 번호로 바로 확인하고 안내방송을 합니다. 밴드에는 연락처가 적혀 있지 않아요.</p></details>
