@@ -150,17 +150,17 @@ main section.show ~ section.show{padding-top:30px}
 .mk.parking{background:#1C2A3A; border-radius:6px; font-size:15px}
 .mk.facility{background:#fff; color:#111; border-color:#2A6FD1; border-radius:8px; font-size:17px; width:30px; height:30px}
 .mk.facility.aid{border-color:#D9453A} .mk.facility.nursing{border-color:#D9459A} .mk.facility.wagon{border-color:#E58A00} .mk.facility.rest{border-color:#2E8B57} .mk.facility.water{border-color:#0F8A8A} .mk.facility.smoke{border-color:#6B7280}
-.mk .code{position:absolute; top:100%; left:50%; transform:translate(-50%,3px); background:#fff; color:var(--coral); font-size:10px; font-weight:800; padding:1px 5px; border-radius:6px; border:1.5px solid var(--coral); white-space:nowrap}
+.mk .code{position:absolute; top:100%; left:50%; transform:translate(-50%,3px); background:#fff; color:#D9453A; font-size:10px; font-weight:800; padding:1px 5px; border-radius:6px; border:1.5px solid #D9453A; white-space:nowrap}
 .mk.on{z-index:5; box-shadow:0 0 0 4px rgba(255,198,61,.95), 0 2px 8px rgba(0,0,0,.5)}
 .mk.on.booth{box-shadow:none; filter:drop-shadow(0 0 3px #FFC63D) drop-shadow(0 0 2px #FFC63D)}
 .imap:not(.z2) .mk .code{display:none}
 .mk.hide{display:none}
 .mk.dim{opacity:.22; pointer-events:none}
-.notice{position:absolute; left:10px; top:10px; z-index:7; max-width:calc(100% - 68px); background:rgba(255,251,241,.97); color:var(--fg); border:1.5px solid var(--sun); border-radius:14px; padding:10px 12px; text-align:left; font:inherit; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.25); display:grid; gap:3px}
+.notice{position:absolute; left:10px; top:10px; z-index:7; max-width:calc(100% - 68px); background:rgba(255,251,241,.97); color:#1C2A3A; border:1.5px solid #FFC63D; border-radius:14px; padding:10px 12px; text-align:left; font:inherit; cursor:pointer; box-shadow:0 4px 14px rgba(0,0,0,.25); display:grid; gap:3px}
 .notice b{font-size:15px}
-.notice span{font-size:13.5px; line-height:1.45; color:var(--muted)}
-.notice span b{font-size:13.5px; color:var(--fg)}
-.notice em{font-style:normal; font-size:11.5px; color:var(--sky); font-weight:700}
+.notice span{font-size:13.5px; line-height:1.45; color:#3F4B5B}
+.notice span b{font-size:13.5px; color:#1C2A3A}
+.notice em{font-style:normal; font-size:11.5px; color:#2A6FD1; font-weight:700}
 .notice.mini{padding:6px 11px; border-radius:999px; gap:0}
 .notice.mini span,.notice.mini em{display:none}
 .notice.mini b{font-size:13.5px}
@@ -310,7 +310,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <div class="tile hi">
       <div class="k">어린이 투어 참여권</div>
       <div class="v sm">10,000원</div>
-      <div class="d"><b>사전예매 7,000원</b> (30% 할인) · 끊은 사람은 어른도 디지털 미션투어 + 혜택<br>현장 구매는 티켓부스 1(탐험본부 옆)에서 <b>카드만</b>(현금 안 받아요)<br><b>어린이 투어 참여권 받을 때 밀양사랑상품권 페이백</b> — 현장 구매 5,000원 · 사전예매 3,000원 (어린이 투어 참여권 1장당 1회, 재원 소진 시 종료)</div>
+      <div class="d"><b>사전예매 7,000원</b> (30% 할인) · 끊은 사람은 어른도 디지털 미션투어 + 혜택<br>현장 구매는 티켓부스 1(탐험본부 옆)에서 <b>카드만</b>(현금 안 받아요)<br><b>어린이 투어 참여권 받을 때 밀양사랑상품권 페이백</b> — 3,000원 (현장 구매·사전예매 동일, 어린이 투어 참여권 1장당 1회, 재원 소진 시 종료)</div>
     </div>
     <div class="tile">
       <div class="k">동행 어른 · 36개월 미만</div>
@@ -433,7 +433,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
       <li><i>🎨</i><span>프리미엄 유료체험 <b>5,000~10,000원</b> — 종목과 가격은 현장에서 안내해요.</span></li>
       <li><i>🎫</i><span>유료체험 티켓부스(2·3)에서 접수하면 그 자리에서 상품권을 드려요. 상품권은 행사장 안 유료체험·플프마켓·먹거리존 어디서나, 그리고 밀양 가맹점에서 쓸 수 있어요.</span></li>
       <li><i>💳</i><span>유료체험은 <b>현금·계좌이체·밀양사랑상품권</b> 모두 받아요(카드는 안 돼요). 페이백은 <b>현금·계좌이체로 결제할 때만</b> — 상품권으로 내면 규정상 페이백이 없어요. 어린이 투어 참여권 없이도 체험만 따로 할 수 있어요.</span></li>
-      <li><i>🎟️</i><span><b>어린이 투어 참여권도 페이백!</b> 티켓부스 1에서 어린이 투어 참여권을 받을 때 현장 구매 5,000원 · 사전예매 3,000원을 상품권으로 드려요(어린이 투어 참여권 1장당 1회).</span></li>
+      <li><i>🎟️</i><span><b>어린이 투어 참여권도 페이백!</b> 티켓부스 1에서 어린이 투어 참여권을 받을 때 3,000원을 상품권으로 드려요(현장 구매·사전예매 동일)(어린이 투어 참여권 1장당 1회).</span></li>
     </ul>
     <div class="plist" aria-label="유료체험 목록">
       <div class="pc"><img src="img/p1.jpg" alt="" loading="lazy"><div><b>① 그림책 배지·키링 만들기</b><span>그린도서관 · 부스 2</span></div></div>
@@ -475,7 +475,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <details open><summary>비가 오면 어떻게 되나요?</summary><p>미션 스테이션 8곳이 대부분 실내라 보물찾기는 그대로 진행돼요. 잔디 공연과 게임은 실내로 옮겨서 하고, 바람의정원 야외 프로그램은 실내 프로그램만 진행합니다.</p></details>
     <details><summary>앱을 설치해야 하나요?</summary><p>아니요. 보호자 휴대폰 카메라로 QR만 찍으면 바로 탐험여권이 열려요. 인터넷만 되면 됩니다.</p></details>
     <details><summary>어른도 미션을 할 수 있나요?</summary><p>네. 어린이 투어 참여권(10,000원 · 사전예매 30% 할인 7,000원)을 끊으면 어른도 똑같이 디지털 미션투어를 하고 가챠·웨건 같은 혜택을 받아요. 어린이 투어 참여권 없이 동행만 하는 어른은 무료입장으로 공연·영화·플레이그라운드·플프마켓·먹거리존을 즐기고, 수확왕 결정전과 불닭볶음면 천천히 먹기 대결에는 참가할 수 있어요. 어린이 투어 참여권은 한 사람당 한 장, 여권과 가챠도 각각이에요.</p></details>
-    <details><summary>상품권 페이백은 어떻게 받나요?</summary><p>두 가지예요. ① 어린이 투어 참여권을 티켓부스 1에서 받을 때 현장 구매는 5,000원, 사전예매는 3,000원을 밀양사랑상품권으로 드려요(어린이 투어 참여권 1장당 1회, 어른이 산 어린이 투어 참여권도 똑같이). ② 유료체험은 현금·계좌이체 결제액의 50%를 티켓부스 2·3에서 바로 드려요(상품권으로 결제한 건은 규정상 페이백이 없어요). 둘 다 준비된 재원이 다 쓰이면 그날 페이백은 끝나고, 상품권을 받은 어린이 투어 참여권은 환불이 안 돼요. 받은 상품권은 행사장 안 유료체험·플프마켓·먹거리존 어디서나, 밀양 가맹점에서도 쓸 수 있어요.</p></details>
+    <details><summary>상품권 페이백은 어떻게 받나요?</summary><p>두 가지예요. ① 어린이 투어 참여권을 티켓부스 1에서 받을 때 현장 구매·사전예매 모두 3,000원을 밀양사랑상품권으로 드려요(어린이 투어 참여권 1장당 1회, 어른이 산 어린이 투어 참여권도 똑같이). ② 유료체험은 현금·계좌이체 결제액의 50%를 티켓부스 2·3에서 바로 드려요(상품권으로 결제한 건은 규정상 페이백이 없어요). 둘 다 준비된 재원이 다 쓰이면 그날 페이백은 끝나고, 상품권을 받은 어린이 투어 참여권은 환불이 안 돼요. 받은 상품권은 행사장 안 유료체험·플프마켓·먹거리존 어디서나, 밀양 가맹점에서도 쓸 수 있어요.</p></details>
     <details><summary>현장에서는 어떻게 결제하나요?</summary><p>현장 구매 어린이 투어 참여권은 <b>카드만</b> 받아요(현금은 안 돼요). 반대로 유료체험은 현금·계좌이체·밀양사랑상품권으로 받고 카드는 안 돼요. 플프마켓·먹거리존도 상품권을 받아요. 미리 사면 <a href="https://m.booking.naver.com/booking/12/bizes/1191013/items/8129527" target="_blank" rel="noopener">네이버 예약 사전예매</a>로 30% 할인!</p></details>
     <details><summary>사전예매 환불은 어떻게 되나요?</summary><p>행사일 7일 전까지 100%, 3일 전까지 90%, 1일 전까지 70%, 당일은 환불이 어려워요. 날씨 등 주최 측 사유로 취소되면 전액 환불합니다.</p></details>
     <details><summary>아이를 잃어버리면요?</summary><p>모든 아이가 번호가 적힌 손목밴드를 차요. 가까운 운영요원에게 말하면 탐험본부에서 번호로 바로 확인하고 안내방송을 합니다. 밴드에는 연락처가 적혀 있지 않아요.</p></details>
@@ -556,7 +556,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   var COL={mission:'#D9453A',lawn:'#2A6FD1',cinema:'#2E8B57',market:'#7A3CAB',food:'#0F8A8A',booth:'#E58A00',parking:'#1C2A3A',facility:'#2A6FD1'};
   var CHIPS=[['all','전체'],['basic','기본'],['mission','미션'],['booth','티켓부스'],['toilet','🚻 화장실'],['nursing','🍼 수유실'],['aid','➕ 응급·안내'],['water','🚰 음수대'],['wagon','🛒 웨건 대여'],['rest','🪑 휴게'],['smoke','🚬 흡연'],['etc','📍 기타'],['foodm','먹거리·마켓'],['parking','P 주차장·동선']];
   var DESC={toilet:'가장 가까운 화장실이에요.',nursing:'기저귀 교환·수유를 할 수 있는 공간이에요.',aid:'다친 아이, 미아, 분실물은 여기로 오세요. 안내방송도 여기서 해요.',water:'물을 마시거나 물통을 채울 수 있어요.',rest:'그늘에서 잠시 쉬어 가는 곳이에요.',smoke:'지정 흡연구역이에요. 행사장 안 다른 곳은 금연입니다.',wagon:'어린이 투어 참여권 가족에게 키즈 웨건을 무료로 빌려드려요(한정수량·선착순).',etc:''};
-  var BOOTH={'1':'어린이 투어 참여권을 사고 받는 곳(카드만, 현금 안 받아요). 받을 때 상품권 페이백(현장 5,000원·사전예매 3,000원)도 드려요. 유료체험 접수는 하지 않아요.','2':'유료체험 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).','3':'유료체험 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).'};
+  var BOOTH={'1':'어린이 투어 참여권을 사고 받는 곳(카드만, 현금 안 받아요). 받을 때 상품권 페이백(3,000원, 현장·사전예매 동일)도 드려요. 유료체험 접수는 하지 않아요.','2':'유료체험 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).','3':'유료체험 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).'};
   var imap=document.getElementById('imap'), inner=document.getElementById('imapInner'), mkWrap=document.getElementById('imk'), svg=document.getElementById('isvg'), ibox=document.getElementById('ibox');
   var places=[], routes=[], k=1, tx=0, ty=0, filter='all', sel=-1;
   function catOf(m){ if(m.type==='facility') return m.cat||'etc'; if(m.type==='food'||m.type==='market') return 'foodm'; return m.type; }
