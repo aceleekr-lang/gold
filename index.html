@@ -230,6 +230,7 @@ main section.show ~ section.show{padding-top:30px}
 .pc div{padding:9px 10px 11px}
 .pc b{display:block; font-size:15px; line-height:1.35}
 .pc span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
+.pc.wide{grid-column:1/-1} .pc.wide img{aspect-ratio:16/7}
 @media (max-width:360px){ .plist{grid-template-columns:1fr} }
 .etc{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:8px}
 .etc li{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:14.5px; color:var(--muted)}
@@ -265,10 +266,202 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
 .ov .hd button{background:#fff; color:#111; border:0; border-radius:10px; padding:8px 14px; font-weight:700; font-size:15px; cursor:pointer}
 .ov .sc{flex:1; overflow:auto; -webkit-overflow-scrolling:touch}
 .ov .sc img{width:220%; max-width:none; display:block}
+
+/* ── 인트로: 보물지도 → 문 → 터치하면 열림 (색은 포스터 톤 고정, 테마 무관) ── */
+.intro{position:fixed; inset:0; z-index:100; overflow:hidden; display:grid; place-items:center; color:#1E3A8A;
+  background:radial-gradient(circle at 85% 8%, #FFF6B8 0 6%, transparent 22%), linear-gradient(180deg,#3FA9F5 0%,#8FD0FF 55%,#CFEFFF 78%,#8ED16A 78%,#5DB043 100%);
+  transition:opacity .6s ease .5s; -webkit-tap-highlight-color:transparent; cursor:pointer; touch-action:manipulation}
+.intro.gone{opacity:0; pointer-events:none}
+.intro .ibg{position:absolute; inset:0; background:center/cover no-repeat; opacity:0; transition:opacity .8s; transform:scale(1.06); animation:bgDrift 18s ease-in-out infinite alternate}
+.intro.imgbg .ibg{opacity:1}
+.intro.imgbg .cloud{display:none}
+@keyframes bgDrift{to{transform:scale(1.12) translateY(-1.5%)}}
+.intro .aura{position:absolute; left:50%; top:50%; width:150vmin; aspect-ratio:1; margin:-75vmin 0 0 -75vmin; border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, rgba(255,246,190,.55) 0%, rgba(255,214,110,.22) 28%, transparent 55%); animation:aura 4s ease-in-out infinite}
+@keyframes aura{50%{transform:scale(1.08); opacity:.75}}
+.intro .mote{position:absolute; bottom:-10px; width:6px; height:6px; border-radius:50%; background:#FFF3B0; box-shadow:0 0 10px 3px rgba(255,230,140,.8); opacity:0; animation:rise linear infinite; pointer-events:none}
+@keyframes rise{0%{opacity:0; transform:translate(0,0)} 15%{opacity:.9} 100%{opacity:0; transform:translate(var(--dx),-105vh)}}
+/* 문 두드리기 */
+.intro.knock .door.l{animation:knockL .32s ease-in-out 2}
+.intro.knock .door.r{animation:knockR .32s ease-in-out 2}
+@keyframes knockL{0%,100%{transform:none} 30%{transform:rotateY(-6deg) translateX(-2px)} 60%{transform:rotateY(2deg)}}
+@keyframes knockR{0%,100%{transform:none} 30%{transform:rotateY(6deg) translateX(2px)} 60%{transform:rotateY(-2deg)}}
+.intro .seam{position:absolute; left:50%; top:12%; bottom:3%; width:10px; margin-left:-5px; border-radius:6px; pointer-events:none; opacity:0;
+  background:linear-gradient(180deg, transparent, #FFF9D6 20%, #FFFFFF 50%, #FFF9D6 80%, transparent); box-shadow:0 0 18px 8px rgba(255,236,150,.9), 0 0 50px 18px rgba(255,210,90,.55)}
+.intro.knock .seam{animation:seam .9s ease-out forwards}
+@keyframes seam{0%{opacity:0} 25%{opacity:.6} 45%{opacity:.25} 70%{opacity:1} 100%{opacity:1}}
+.intro .kk{position:absolute; font-family:var(--font-display); font-size:34px; color:#fff; -webkit-text-stroke:2px #8A4B00; paint-order:stroke fill; text-shadow:0 3px 0 #8A4B00; opacity:0; pointer-events:none}
+.intro .kk.a{left:4%; top:38%} .intro .kk.b{right:4%; top:30%}
+.intro.knock .kk.a{animation:kk .55s 0s ease-out forwards}
+.intro.knock .kk.b{animation:kk .55s .32s ease-out forwards}
+@keyframes kk{0%{opacity:0; transform:scale(.3) rotate(-12deg)} 35%{opacity:1; transform:scale(1.25) rotate(4deg)} 100%{opacity:0; transform:scale(1) translateY(-18px)}}
+.intro .dust{position:absolute; left:50%; bottom:2%; width:0; height:0; pointer-events:none}
+.intro .dust i{position:absolute; width:8px; height:8px; margin:-4px; border-radius:50%; background:#FFE7A0; opacity:0}
+.intro.knock .dust i{animation:dust .8s ease-out forwards}
+@keyframes dust{0%{opacity:.9; transform:translate(0,0) scale(.6)} 100%{opacity:0; transform:translate(var(--x),var(--y)) scale(1.4)}}
+@media (prefers-reduced-motion: reduce){ .intro .ibg,.intro .aura,.intro .mote{animation:none !important} }
+.intro .cloud{position:absolute; background:#fff; border-radius:999px; opacity:.9; filter:blur(.3px)}
+.intro .cloud::before,.intro .cloud::after{content:""; position:absolute; background:#fff; border-radius:50%}
+.intro .c1{width:120px; height:34px; left:6%; top:12%} .intro .c1::before{width:54px; height:54px; left:18px; top:-26px} .intro .c1::after{width:40px; height:40px; left:62px; top:-16px}
+.intro .c2{width:90px; height:28px; right:8%; top:24%} .intro .c2::before{width:42px; height:42px; left:14px; top:-20px} .intro .c2::after{width:30px; height:30px; left:48px; top:-12px}
+.intro .stage{position:relative; width:min(86vw,420px); aspect-ratio:3/4}
+/* 1단계: 찢어진 지도 두 조각이 날아와 붙음 → 반짝 → 길 그려짐 → X */
+.intro .tmap{position:absolute; inset:6% 4%}
+.intro .tmap .mp,.intro .tmap .deco{position:absolute; inset:0; width:100%; height:100%; opacity:0}
+.intro .tmap .mp svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
+.intro .tmap .mp img{position:absolute; top:0; height:100%; width:54%; object-fit:contain}
+.intro .tmap .mp.l img{left:0} .intro .tmap .mp.r img{right:0}
+.intro.s1 .tmap .mp.l{animation:flyL 1.05s cubic-bezier(.2,.9,.3,1.15) forwards}
+.intro.s1 .tmap .mp.r{animation:flyR 1.05s .08s cubic-bezier(.2,.9,.3,1.15) forwards}
+@keyframes flyL{0%{opacity:0; transform:translate(-120%,-35%) rotate(-38deg) scale(.7)} 25%{opacity:1} 80%{transform:translate(3%,1%) rotate(3deg) scale(1.02)} 100%{opacity:1; transform:none}}
+@keyframes flyR{0%{opacity:0; transform:translate(120%,30%) rotate(34deg) scale(.7)} 25%{opacity:1} 80%{transform:translate(-3%,-1%) rotate(-3deg) scale(1.02)} 100%{opacity:1; transform:none}}
+.intro.s1 .tmap .deco{animation:fadeIn .5s 1.15s forwards}
+@keyframes fadeIn{to{opacity:1}}
+.intro .tmap .path{stroke-dasharray:6 7; stroke-dashoffset:300}
+.intro.s1 .tmap .path{animation:draw 1.3s 1.4s ease-in-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.intro .tmap .x{opacity:0; transform-origin:center; transform-box:fill-box}
+.intro.s1 .tmap .x{animation:pop .5s 2.7s cubic-bezier(.2,.9,.3,1.8) forwards}
+@keyframes pop{0%{opacity:0; transform:scale(0) rotate(-90deg)} 100%{opacity:1; transform:scale(1) rotate(0)}}
+.intro.s1 .tmap{animation:bobMap 2.4s 3.1s ease-in-out infinite}
+@keyframes bobMap{50%{transform:translateY(-6px) rotate(-.6deg)}}
+.intro .tmap .flash{position:absolute; left:50%; top:50%; width:70%; aspect-ratio:1; margin:-35% 0 0 -35%; border-radius:50%; opacity:0; pointer-events:none;
+  background:radial-gradient(circle, rgba(255,255,255,.95) 0 18%, rgba(255,226,120,.75) 40%, transparent 68%)}
+.intro.s1 .tmap .flash{animation:flash .7s 1.0s ease-out forwards}
+@keyframes flash{0%{opacity:0; transform:scale(.3)} 30%{opacity:1} 100%{opacity:0; transform:scale(1.6)}}
+.intro .burst{position:absolute; left:50%; top:50%; width:0; height:0; pointer-events:none}
+.intro .burst i{position:absolute; left:-9px; top:-9px; width:18px; height:18px; font-style:normal; color:#FFD23F; font-size:18px; line-height:18px; text-align:center; opacity:0; text-shadow:0 0 6px #fff}
+.intro .burst i::before{content:"✦"}
+.intro.s1 .burst i{animation:spark .9s 1.05s ease-out forwards}
+@keyframes spark{0%{opacity:0; transform:rotate(var(--a)) translateY(0) scale(.4)} 25%{opacity:1} 100%{opacity:0; transform:rotate(var(--a)) translateY(calc(-1 * var(--d))) scale(1.1)}}
+.intro .twinkle{position:absolute; color:#fff; font-style:normal; font-size:14px; opacity:.0; animation:tw 2.2s ease-in-out infinite; text-shadow:0 0 8px #FFF6B8}
+.intro .twinkle::before{content:"✦"}
+@keyframes tw{0%,100%{opacity:0; transform:scale(.5)} 50%{opacity:.95; transform:scale(1.15)}}
+.intro.s2 .tmap{animation:none; transform:scale(.5) translateY(-8%); opacity:0; filter:blur(2px); transition:all .6s}
+/* 2단계: 문 */
+.intro .gate{position:absolute; inset:0; perspective:1200px; opacity:0; transform:scale(.7); transition:opacity .6s, transform .8s cubic-bezier(.2,.9,.3,1.15)}
+.intro.s2 .gate{opacity:1; transform:none}
+.intro .frame{position:absolute; inset:0; border-radius:48% 48% 10px 10px / 26% 26% 10px 10px; background:#2A9D8F; box-shadow:0 18px 40px rgba(20,40,80,.35), inset 0 0 0 6px #F2C14E}
+.intro .light{position:absolute; inset:14px; border-radius:inherit; background:radial-gradient(circle at 50% 55%, #FFFDE8 0%, #FFE58A 35%, #FFB627 75%); overflow:hidden}
+.intro .light img{width:100%; height:100%; object-fit:cover; opacity:.0; transition:opacity .8s .3s}
+.intro.open .light img{opacity:1}
+.intro .door{position:absolute; top:14px; bottom:14px; width:calc(50% - 14px); transform-style:preserve-3d; transition:transform 1.1s cubic-bezier(.6,.05,.3,1);
+  background:repeating-linear-gradient(90deg, rgba(160,100,10,.18) 0 2px, transparent 2px 22%), linear-gradient(180deg,#FFD84A,#F2B321 60%,#E39B12); border:3px solid #B9770E}
+.intro .door.l{left:14px; transform-origin:left center; border-radius:46% 0 6px 6px / 22% 0 6px 6px}
+.intro .door.r{right:14px; transform-origin:right center; border-radius:0 46% 6px 6px / 0 22% 6px 6px}
+.intro .door .bg{position:absolute; inset:0; background-size:cover; background-position:center; border-radius:inherit}
+.intro .door .dsun{position:absolute; top:30%; width:58%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,#FFE680 0 38%,#F5B700 39% 46%,#FFD23F 47%); box-shadow:0 0 0 4px #B9770E}
+.intro .door.l .dsun{right:12%} .intro .door.r .dsun{left:12%}
+.intro .door .ring{position:absolute; top:56%; width:26px; height:34px; border:5px solid #9A6A08; border-radius:50%; border-top-color:transparent}
+.intro .door.l .ring{right:8px} .intro .door.r .ring{left:8px}
+.intro.imgdoor .dsun,.intro.imgdoor .ring{display:none}
+.intro.imgdoor .door{background:none; border:0; border-radius:0; filter:drop-shadow(0 6px 10px rgba(60,30,0,.35))}
+.intro.imgdoor .door .bg{background-size:100% 100%; border-radius:0}
+.intro.imgdoor .door.l{-webkit-mask:url(img/door-l.png) center/100% 100% no-repeat; mask:url(img/door-l.png) center/100% 100% no-repeat}
+.intro.imgdoor .door.r{-webkit-mask:url(img/door-r.png) center/100% 100% no-repeat; mask:url(img/door-r.png) center/100% 100% no-repeat}
+.intro.imgmap .tmap .mp img{filter:drop-shadow(0 8px 12px rgba(60,30,0,.3))}
+.intro .door{overflow:hidden}
+.intro .door::after{content:""; position:absolute; top:-10%; bottom:-10%; width:40%; left:-60%; transform:skewX(-18deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent); pointer-events:none}
+.intro.s2:not(.open) .door::after{animation:shine 2.6s 1s ease-in-out infinite}
+.intro.s2:not(.open) .door.r::after{animation-delay:1.25s}
+@keyframes shine{0%{left:-60%} 45%,100%{left:130%}}
+.intro .rays{position:absolute; left:50%; top:52%; width:240%; aspect-ratio:1; margin:-120% 0 0 -120%; border-radius:50%; opacity:0; pointer-events:none;
+  background:repeating-conic-gradient(from 0deg, rgba(255,240,170,.55) 0 8deg, transparent 8deg 22deg); -webkit-mask:radial-gradient(circle, #000 0 20%, transparent 62%); mask:radial-gradient(circle, #000 0 20%, transparent 62%)}
+.intro.open .rays{animation:rays 1.6s ease-out forwards}
+@keyframes rays{0%{opacity:0; transform:scale(.4) rotate(0)} 30%{opacity:1} 100%{opacity:0; transform:scale(1.2) rotate(40deg)}}
+.intro.open .door.l{transform:rotateY(-105deg)} .intro.open .door.r{transform:rotateY(105deg)}
+.intro .title{position:absolute; left:0; right:0; top:-21%; text-align:center; font-family:var(--font-display); line-height:1.05;
+  color:#FFD23F; font-size:clamp(30px,9vw,44px); -webkit-text-stroke:2px #1E3A8A; paint-order:stroke fill; text-shadow:0 4px 0 #1E3A8A, 0 8px 14px rgba(0,0,0,.25); opacity:0; transform:translateY(-10px); transition:all .6s .2s}
+.intro .title small{display:block; font-size:.5em; color:#fff; -webkit-text-stroke:0; text-shadow:0 2px 0 #1E4FA8; margin-top:6px}
+.intro.s2 .title{opacity:1; transform:none}
+.intro .hint{position:absolute; left:50%; bottom:-15%; transform:translateX(-50%); white-space:nowrap; background:#1E4FA8; color:#fff; font-weight:700; font-size:16px; padding:10px 18px; border-radius:999px; box-shadow:0 6px 0 #14357A; opacity:0; transition:opacity .4s .6s}
+.intro.s2 .hint{opacity:1; animation:bob 1.3s 1.2s ease-in-out infinite}
+.intro.open .hint,.intro.open .title{opacity:0; animation:none}
+@keyframes bob{50%{transform:translateX(-50%) translateY(-6px)}}
+.intro .skip{position:absolute; right:14px; top:calc(14px + env(safe-area-inset-top,0px)); background:rgba(255,255,255,.85); color:#1E3A8A; border:0; border-radius:999px; padding:7px 13px; font-size:13px; font-weight:700; cursor:pointer}
+.intro .stamp{position:absolute; left:0; right:0; top:calc(64px + env(safe-area-inset-top,0px)); text-align:center; color:#fff; font-weight:700; font-size:15px; text-shadow:0 1px 3px rgba(0,0,0,.35); opacity:0; transition:opacity .5s .3s}
+.intro.imgbg .stamp{left:50%; right:auto; transform:translateX(-50%); white-space:nowrap; background:rgba(30,58,138,.6); padding:6px 14px; border-radius:999px; font-size:14px}
+.intro.s1 .stamp{opacity:1} .intro.s2 .stamp{opacity:0}
+@media (prefers-reduced-motion: reduce){ .intro *, .intro{transition-duration:.01s !important; animation:none !important} .intro .tmap .path{stroke-dashoffset:0} .intro .tmap .x{opacity:1} }
+
+/* ── 사전예매 vs 현장 구매 비교 ── */
+.vs{margin-top:16px; border-radius:20px; overflow:hidden; border:2px solid color-mix(in srgb,var(--sun) 70%,var(--line)); background:var(--card); box-shadow:var(--shadow)}
+.vs .hd{background:#1E4FA8; color:#fff; padding:10px 14px; font-family:var(--font-display); font-size:19px; text-align:center}
+.vs .cols{display:grid; grid-template-columns:1.15fr 1fr}
+.vs .col{padding:14px 12px 12px; min-width:0}
+.vs .col + .col{border-left:1px dashed var(--line); background:color-mix(in srgb,var(--muted) 6%,var(--card))}
+.vs .best{position:relative; background:var(--soft)}
+.vs .ribbon{display:inline-block; background:#E8342B; color:#fff; font-size:12px; font-weight:700; padding:2px 9px; border-radius:999px; margin-bottom:6px}
+.vs .ribbon.gray{background:var(--muted); color:var(--card)}
+.vs .nm{font-family:var(--font-display); font-size:19px; line-height:1.2}
+.vs .how{font-size:13px; color:var(--muted); margin-top:2px}
+.vs .ln{display:flex; flex-wrap:nowrap; white-space:nowrap; justify-content:space-between; gap:6px; font-size:14px; margin-top:8px; font-variant-numeric:tabular-nums}
+.vs .ln s{color:var(--muted)}
+.vs .ln .gold{color:#B07A00; font-weight:700}
+:root[data-theme="dark"] .vs .ln .gold{color:#FFD166}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .vs .ln .gold{color:#FFD166} }
+.vs .net{margin-top:8px; padding-top:8px; border-top:2px solid var(--line); display:grid; gap:2px}
+.vs .net span{font-size:13px; font-weight:700; color:var(--muted)}
+.vs .net b{font-family:var(--font-display); font-weight:400; font-size:34px; white-space:nowrap; line-height:1; color:var(--coral)}
+.vs .col + .col .net b{color:var(--fg); font-size:28px}
+.vs .vpay{display:inline-flex; gap:4px; align-items:center; margin-top:8px; font-size:13px; font-weight:700; padding:3px 9px; border-radius:8px; background:color-mix(in srgb,var(--sky) 14%,transparent); color:var(--fg)}
+.vs .bars{padding:12px 14px 14px; border-top:1px solid var(--line); display:grid; gap:7px}
+.vs .bar{display:grid; grid-template-columns:62px 1fr; gap:8px; align-items:center; font-size:13px; font-weight:700}
+.vs .bar i{display:block; height:22px; border-radius:6px; position:relative; font-style:normal}
+.vs .bar i span{position:absolute; right:8px; top:50%; transform:translateY(-50%); font-size:13px; color:#fff; white-space:nowrap}
+.vs .bar.a i{width:57.1%; background:linear-gradient(90deg,#FFB627,#E8342B)}
+.vs .bar.b i{width:100%; background:#8A96A6}
+.vs .save{margin:2px 0 0; text-align:center; font-weight:700; font-size:15px}
+.vs .save em{font-style:normal; color:var(--coral); font-family:var(--font-display); font-weight:400; font-size:20px}
+.vs .fine{font-size:12.5px; color:var(--muted); text-align:center; padding:0 12px 12px}
+
+/* ── 결제수단 한눈에 ── */
+.payhow{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px}
+.payhow > div{background:var(--card); border:2px solid var(--line); border-radius:16px; padding:12px; min-width:0}
+.payhow .pt{font-size:13px; color:var(--muted); font-weight:700}
+.payhow .pm{font-family:var(--font-display); font-size:20px; line-height:1.25; margin-top:4px}
+.payhow .px{font-size:13px; margin-top:6px; color:var(--coral); font-weight:700}
+.payhow .pcard{border-color:color-mix(in srgb,var(--sky) 55%,var(--line))}
+.payhow .pcash{border-color:color-mix(in srgb,var(--leaf) 55%,var(--line))}
+@media (max-width:340px){ .payhow{grid-template-columns:1fr} .vs .cols{grid-template-columns:1fr} .vs .col + .col{border-left:0; border-top:1px dashed var(--line)} }
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} img{max-width:100%}</style>
 </head>
 <body>
+
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="문을 눌러 선샤인 보물섬 탐험대 안내 시작">
+  <div class="ibg"></div><div class="aura"></div>
+  <i class="mote" style="left:8%;--dx:20px;animation-duration:9s;animation-delay:0s"></i><i class="mote" style="left:22%;--dx:-15px;animation-duration:11s;animation-delay:2s"></i><i class="mote" style="left:37%;--dx:25px;animation-duration:10s;animation-delay:4.5s"></i><i class="mote" style="left:55%;--dx:-20px;animation-duration:12s;animation-delay:1s"></i><i class="mote" style="left:68%;--dx:15px;animation-duration:9.5s;animation-delay:3s"></i><i class="mote" style="left:82%;--dx:-25px;animation-duration:11s;animation-delay:5.5s"></i><i class="mote" style="left:92%;--dx:10px;animation-duration:10s;animation-delay:7s"></i>
+  <div class="cloud c1"></div><div class="cloud c2"></div>
+  <i class="twinkle" style="left:12%;top:30%;animation-delay:0s"></i><i class="twinkle" style="left:84%;top:40%;animation-delay:0.7s"></i><i class="twinkle" style="left:20%;top:62%;animation-delay:1.3s"></i><i class="twinkle" style="left:76%;top:70%;animation-delay:0.4s"></i><i class="twinkle" style="left:50%;top:18%;animation-delay:1.0s"></i><i class="twinkle" style="left:90%;top:15%;animation-delay:1.6s"></i>
+  <div class="rays"></div>
+  <button class="skip" type="button" id="introSkip">건너뛰기</button>
+  <div class="stamp">찢어진 보물지도 조각이 모이고 있어요…</div>
+  <div class="stage">
+    <div class="tmap">
+      <div class="mp l"><svg viewBox="0 0 300 380" aria-hidden="true"><path d="M18 24 L60 18 L100 22 L150 14 L144 50 L152 82 L140 120 L158 152 L150 190 L162 228 L148 270 L156 312 L146 368 L100 362 L60 366 L22 360 L26 300 L16 240 L24 180 L14 120 L22 70 Z" fill="#F6E2B3" stroke="#9C6B2E" stroke-width="3" stroke-linejoin="round"/><path d="M30 40 L60 34 M24 340 L60 350" stroke="#C99B5A" stroke-width="2" opacity=".6"/></svg></div>
+      <div class="mp r"><svg viewBox="0 0 300 380" aria-hidden="true"><path d="M160 18 L210 24 L250 20 L284 28 L278 90 L286 150 L276 220 L284 290 L278 362 L230 366 L190 362 L156 370 L166 320 L154 276 L170 232 L158 192 L168 154 L150 120 L162 84 L154 50 Z" fill="#EFD39A" stroke="#9C6B2E" stroke-width="3" stroke-linejoin="round" transform="translate(4 2) rotate(1 220 190)"/><path d="M250 340 L272 330" stroke="#C99B5A" stroke-width="2" opacity=".6"/></svg></div>
+      <svg class="deco" viewBox="0 0 300 380" aria-hidden="true">
+        <g opacity=".55" stroke="#B88A4A" stroke-width="1.5" fill="none"><path d="M40 300 q30 -30 60 -10 t70 -20"/><circle cx="235" cy="90" r="26"/><path d="M235 58 v64 M203 90 h64"/></g>
+        <g fill="#7CB342" opacity=".85"><circle cx="70" cy="90" r="12"/><circle cx="86" cy="98" r="10"/><circle cx="210" cy="250" r="13"/><circle cx="226" cy="258" r="9"/></g>
+        <path d="M120 250 q10 -12 26 -6 q14 6 22 -4" stroke="#3FA9F5" stroke-width="5" fill="none" opacity=".7"/>
+        <path class="path" d="M50 330 C 80 280, 140 300, 130 240 S 90 160, 150 140 S 230 150, 215 95" stroke="#E8342B" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g class="x"><path d="M203 83 l24 24 M227 83 l-24 24" stroke="#E8342B" stroke-width="7" stroke-linecap="round"/></g>
+        <text x="150" y="46" text-anchor="middle" font-family="Jua, sans-serif" font-size="20" fill="#7A4A12">찢어진 보물지도</text>
+      </svg>
+      <div class="flash"></div>
+      <div class="burst"><i style="--a:0deg;--d:120px"></i><i style="--a:36deg;--d:95px"></i><i style="--a:72deg;--d:130px"></i><i style="--a:108deg;--d:100px"></i><i style="--a:144deg;--d:125px"></i><i style="--a:180deg;--d:110px"></i><i style="--a:216deg;--d:130px"></i><i style="--a:252deg;--d:95px"></i><i style="--a:288deg;--d:125px"></i><i style="--a:324deg;--d:105px"></i></div>
+    </div>
+    <div class="gate">
+      <div class="title">선샤인 보물섬 탐험대<small>찢어진 보물지도</small></div>
+      <div class="frame"><div class="light"><img src="img/hero.jpg" alt=""></div></div>
+      <div class="door l"><div class="bg" style="background-image:url(img/door-l.png)"></div><div class="dsun"></div><div class="ring"></div></div>
+      <div class="door r"><div class="bg" style="background-image:url(img/door-r.png)"></div><div class="dsun"></div><div class="ring"></div></div>
+      <div class="seam"></div><div class="kk a">똑!</div><div class="kk b">똑!</div><div class="dust"><i style="--x:-60px;--y:-20px"></i><i style="--x:-35px;--y:-45px"></i><i style="--x:-10px;--y:-30px"></i><i style="--x:15px;--y:-50px"></i><i style="--x:40px;--y:-25px"></i><i style="--x:65px;--y:-15px"></i><i style="--x:-80px;--y:-5px"></i><i style="--x:85px;--y:-8px"></i></div>
+      <div class="hint">👆 문을 두드려 보세요</div>
+    </div>
+  </div>
+</div>
 
 <div class="top"><div class="in">
   <a class="brand" href="#home"><span class="dot"></span>선샤인 보물섬 탐험대</a>
@@ -293,6 +486,35 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   <div class="cta">
     <a class="btn sun" id="bookBtn" href="https://m.booking.naver.com/booking/12/bizes/1191013/items/8129527" target="_blank" rel="noopener" aria-describedby="bookNote"><span><b>사전예매 하기</b><br>30% 할인 7,000원</span></a>
     <a class="btn sky" href="#way">🚗 오시는 길</a>
+  </div>
+  <div class="vs" aria-label="사전예매와 현장 구매 비교">
+    <div class="hd">사전예매가 훨씬 이득이에요!</div>
+    <div class="cols">
+      <div class="col best">
+        <span class="ribbon">추천 · 30% 할인</span>
+        <div class="nm">사전예매</div>
+        <div class="how">네이버 예약 · 10월 23일까지</div>
+        <div class="ln"><span>결제</span><span><s>10,000</s> <b>7,000원</b></span></div>
+        <div class="ln"><span>페이백</span><span class="gold">−3,000원</span></div>
+        <div class="net"><span>실제 부담</span><b>4,000원</b></div>
+        <span class="vpay">📱 온라인 미리 결제</span>
+      </div>
+      <div class="col">
+        <span class="ribbon gray">당일 현장</span>
+        <div class="nm">현장 구매</div>
+        <div class="how">티켓부스 1 · 수량 한정</div>
+        <div class="ln"><span>결제</span><span><b>10,000원</b></span></div>
+        <div class="ln"><span>페이백</span><span class="gold">−3,000원</span></div>
+        <div class="net"><span>실제 부담</span><b>7,000원</b></div>
+        <span class="vpay">💳 카드 결제만</span>
+      </div>
+    </div>
+    <div class="bars" aria-hidden="true">
+      <div class="bar a"><span>사전예매</span><i><span>4,000원</span></i></div>
+      <div class="bar b"><span>현장</span><i><span>7,000원</span></i></div>
+      <p class="save">1장에 <em>3,000원</em> 더 아껴요 · 4인 가족이면 <em>12,000원</em>!</p>
+    </div>
+    <p class="fine">상품권 페이백은 어린이 투어 참여권 1장당 1회 · 재원 소진 시 종료 · 현장 구매는 현금 안 받아요</p>
   </div>
   <p class="note" id="bookNote">사전예매는 네이버 예약에서 할 수 있어요(10월 23일까지). 어린이 투어 참여권 7,000원(정가 10,000원의 30% 할인), 수량 한정. 현장에서 어린이 투어 참여권을 받을 때 밀양사랑상품권 3,000원을 돌려드려요(재원 소진 시 종료).</p>
   <p class="lead" style="margin-top:16px">보물섬에 전해지던 보물지도가 찢어져 테마파크 곳곳에 흩어졌어요. 탐험대원이 되어 미션을 통과할 때마다 지도 조각이 모이고, 5조각이 모이면 보물상자가 열립니다. 하루 종일 뛰놀고, 보고, 만들고, 먹는 가족 나들이 축제예요.</p>
@@ -396,7 +618,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   <p class="lead">미션 스테이션은 10:00부터 17:00까지 계속 열려 있어요. 아래는 시간이 정해진 프로그램이에요.</p>
   <div class="tt" id="ttLawn">
     <h3>중앙잔디 A·B <small>사회자 진행</small></h3>
-    <div class="row" data-s="11:00" data-e="11:30"><div class="t">11:00</div><div class="p"><b>버블 앤 풍선</b><span>오프닝 공연 · 비눗방울과 풍선아트</span></div><div class="l">잔디 A</div></div>
+    <div class="row" data-s="11:00" data-e="11:30"><div class="t">11:00</div><div class="p"><b>벌룬 앤 매직</b><span>오프닝 공연 · 풍선아트와 매직쇼</span></div><div class="l">잔디 A</div></div>
     <div class="row" data-s="11:30" data-e="11:45"><div class="t">11:30</div><div class="p"><b>레크레이션 타임 ①</b><span>수확왕 결정전 1회차 현장 접수</span></div><div class="l">잔디 B</div></div>
     <div class="row" data-s="11:45" data-e="12:35"><div class="t">11:45</div><div class="p"><b>수확왕 결정전 1회차</b><span>가족팀 농산물 운동회 · 회당 15팀</span></div><div class="l">잔디 B</div></div>
     <div class="row" data-s="12:35" data-e="13:00"><div class="t">12:35</div><div class="p"><b>불닭볶음면 천천히 먹기 1회</b><span>어른 참가 · 가장 천천히 다 먹는 부모가 우승</span></div><div class="l">잔디 A</div></div>
@@ -426,6 +648,10 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
 <section id="pay">
   <div class="eyebrow">유료체험 · 반값 페이백</div>
   <h2>유료체험은 뭘 해도 반값</h2>
+  <div class="payhow" aria-label="결제수단 안내">
+    <div class="pcard"><div class="pt">어린이 투어 참여권 · 현장 구매</div><div class="pm">10,000원<br>💳 카드만</div><div class="px">현금 안 받아요</div></div>
+    <div class="pcash"><div class="pt">유료체험 (부스 2·3)</div><div class="pm">💵 현금<br>🏦 계좌이체</div><div class="px">카드 안 돼요</div></div>
+  </div>
   <div class="pay">
     <div class="big">현금으로 결제하면 <em>50%</em>를<br>밀양사랑상품권으로 바로 돌려드려요</div>
     <p class="note" style="margin:6px 0 10px">준비된 페이백 재원이 다 쓰이면 그날 페이백은 끝나요 — 일찍 오면 유리해요.</p>
@@ -439,12 +665,11 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
       <div class="pc"><img src="img/p1.jpg" alt="" loading="lazy"><div><b>① 그림책 배지·키링 만들기</b><span>그린도서관 · 부스 2</span></div></div>
       <div class="pc"><img src="img/p2.jpg" alt="" loading="lazy"><div><b>② 미니 그림책 제본</b><span>그린도서관 · 부스 2</span></div></div>
       <div class="pc"><img src="img/p3.jpg" alt="" loading="lazy"><div><b>③ 책갈피·스탬프 북마크</b><span>그린도서관 · 부스 2</span></div></div>
-      <div class="pc"><img src="img/p4.jpg" alt="" loading="lazy"><div><b>④ 나만의 동화 만들기</b><span>작가의 온실 · 부스 2</span></div></div>
-      <div class="pc"><img src="img/p5.jpg" alt="" loading="lazy"><div><b>⑤ 우드 새모빌·솔방울 둥지</b><span>바람의정원 · 부스 3</span></div></div>
-      <div class="pc"><img src="img/p6.jpg" alt="" loading="lazy"><div><b>⑥ 플프마켓 셀러 체험</b><span>에코리움 온실 · 부스 3</span></div></div>
+      <div class="pc"><img src="img/p5.jpg" alt="" loading="lazy"><div><b>④ 우드 새모빌·솔방울 둥지</b><span>바람의정원 · 부스 3</span></div></div>
+      <div class="pc wide"><img src="img/p6.jpg" alt="" loading="lazy"><div><b>⑤ 플프마켓 셀러 체험</b><span>에코리움 온실 · 부스 3</span></div></div>
     </div>
     <div class="booths">
-      <div class="booth"><b>부스 2</b><span>그린도서관 옆 · 그림책 공예, 나만의 동화 만들기</span></div>
+      <div class="booth"><b>부스 2</b><span>그린도서관 옆 · 그림책 공예 3종</span></div>
       <div class="booth"><b>부스 3</b><span>에코리움 온실 옆 · 플프마켓 셀러 체험</span></div>
       <div class="booth"><b>부스 1</b><span>탐험본부 옆 · 어린이 투어 참여권 현장 구매 전용(유료체험 접수 없음)</span></div>
     </div>
@@ -456,10 +681,10 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   <h2>미션 사이사이, 누구나 무료</h2>
   <div class="more">
     <div class="m wide"><img src="img/play.jpg" alt="자이언트 볼, 에어 검투사, 범퍼볼 등 대형 놀이기구" loading="lazy"><div class="b"><h3>플레이그라운드 <span class="w">13구역 중앙잔디</span></h3><p>자이언트 볼 굴리기, 에어 검투사, 범퍼볼, 에어 새총 타겟, 폼 밸런스 블록, 자이언트 젠가. 접수 없이 아이들끼리 마음껏 노는 곳, 안전요원이 지켜봐요.</p></div></div>
-    <div class="m"><img src="img/harvest.jpg" alt="쌀가마를 메고 달리는 가족 릴레이" loading="lazy"><div class="b"><h3>수확왕 결정전</h3><div class="w">12구역 잔디 B · 11:45 / 13:50</div><p>허수아비가 움직였습니다, 쌀가마 릴레이, 콩주머니 던지기, 수박서리, 허수아비 꾸미기. 가족팀 회당 15팀, 레크레이션 타임에 현장 접수.</p></div></div>
-    <div class="m"><img src="img/cinema.jpg" alt="에코리움 본관 대형 LED 화면" loading="lazy"><div class="b"><h3>영화 상영관</h3><div class="w">6구역 본관 LED · 하루 4회</div><p>토이 스토리 1~4편 무료 상영. 관람권 없이 자유롭게 들어오고 나갈 수 있어요. 계단식 관람석이라 통로에는 앉지 않아요.</p></div></div>
-    <div class="m"><img src="img/slow.jpg" alt="긴 테이블에서 천천히 먹기 대결을 하는 어른들" loading="lazy"><div class="b"><h3>불닭볶음면 천천히 먹기</h3><div class="w">11구역 잔디 A · 12:35 / 14:50</div><p>어른 참가, 회당 현장 접수 10명. 가장 천천히 끝까지 다 먹는 부모가 우승! 빨리 먹기는 반칙, 물과 우유는 준비돼 있어요.</p></div></div>
-    <div class="m"><img src="img/food.jpg" alt="먹거리 부스에서 간식을 받는 가족" loading="lazy"><div class="b"><h3>먹거리존</h3><div class="w">14구역 · 그린도서관 옆</div><p>어린이 먹거리와 간단한 식사. 지역 업체가 준비하고, 상품권도 받아요. 잔디에 돗자리 피크닉도 좋아요.</p></div></div>
+    <div class="pm"><img src="img/harvest.jpg" alt="쌀가마를 메고 달리는 가족 릴레이" loading="lazy"><div class="b"><h3>수확왕 결정전</h3><div class="w">12구역 잔디 B · 11:45 / 13:50</div><p>허수아비가 움직였습니다, 쌀가마 릴레이, 콩주머니 던지기, 수박서리, 허수아비 꾸미기. 가족팀 회당 15팀, 레크레이션 타임에 현장 접수.</p></div></div>
+    <div class="pm"><img src="img/cinema.jpg" alt="에코리움 본관 대형 LED 화면" loading="lazy"><div class="b"><h3>영화 상영관</h3><div class="w">6구역 본관 LED · 하루 4회</div><p>토이 스토리 1~4편 무료 상영. 관람권 없이 자유롭게 들어오고 나갈 수 있어요. 계단식 관람석이라 통로에는 앉지 않아요.</p></div></div>
+    <div class="pm"><img src="img/slow.jpg" alt="긴 테이블에서 천천히 먹기 대결을 하는 어른들" loading="lazy"><div class="b"><h3>불닭볶음면 천천히 먹기</h3><div class="w">11구역 잔디 A · 12:35 / 14:50</div><p>어른 참가, 회당 현장 접수 10명. 가장 천천히 끝까지 다 먹는 부모가 우승! 빨리 먹기는 반칙, 물과 우유는 준비돼 있어요.</p></div></div>
+    <div class="pm"><img src="img/food.jpg" alt="먹거리 부스에서 간식을 받는 가족" loading="lazy"><div class="b"><h3>먹거리존</h3><div class="w">14구역 · 그린도서관 옆</div><p>어린이 먹거리와 간단한 식사. 지역 업체가 준비하고, 상품권도 받아요. 잔디에 돗자리 피크닉도 좋아요.</p></div></div>
   </div>
   <ul class="etc">
     <li><b>플프마켓</b> 10구역 에코리움 온실 — 핸드메이드·키즈용품 판매와 셀러 체험, 페이백 상품권 사용 가능</li>
@@ -509,6 +734,43 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
 
 
 
+<script>
+(function(){
+  var el=document.getElementById('intro'); if(!el) return;
+  var seen=false; try{ seen=sessionStorage.getItem('introSeen')==='1'; }catch(e){}
+  if(seen){ el.remove(); return; }
+  document.documentElement.style.overflow='hidden';
+  (function(){ var ok=0, A=new Image(), B=new Image();
+    function go(){ if(++ok<2) return; var l=el.querySelector('.tmap .mp.l'), r=el.querySelector('.tmap .mp.r'), d=el.querySelector('.tmap .deco');
+      A.alt=''; B.alt=''; l.innerHTML=''; r.innerHTML=''; l.appendChild(A); r.appendChild(B); if(d) d.style.display='none'; el.classList.add('imgmap'); }
+    A.onload=go; B.onload=go; A.src='img/intro-map-l.png'; B.src='img/intro-map-r.png'; })();
+  var bg=new Image(); bg.onload=function(){ var b=el.querySelector('.ibg'); if(b){ b.style.backgroundImage='url(img/intro-bg.jpg)'; el.classList.add('imgbg'); } }; bg.src='img/intro-bg.jpg';
+  function knockSound(){ try{ var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return; var ac=new AC(); [0,.32].forEach(function(t0){
+      var t=ac.currentTime+t0, len=Math.floor(ac.sampleRate*.12), buf=ac.createBuffer(1,len,ac.sampleRate), d=buf.getChannelData(0);
+      for(var i=0;i<len;i++){ d[i]=(Math.random()*2-1)*Math.pow(1-i/len,4); }
+      var n=ac.createBufferSource(); n.buffer=buf; var f=ac.createBiquadFilter(); f.type='lowpass'; f.frequency.value=900; var g=ac.createGain(); g.gain.setValueAtTime(.5,t);
+      n.connect(f); f.connect(g); g.connect(ac.destination); n.start(t);
+      var o=ac.createOscillator(), og=ac.createGain(); o.type='sine'; o.frequency.setValueAtTime(170,t); o.frequency.exponentialRampToValueAtTime(70,t+.12);
+      og.gain.setValueAtTime(.6,t); og.gain.exponentialRampToValueAtTime(.001,t+.16); o.connect(og); og.connect(ac.destination); o.start(t); o.stop(t+.18); });
+      var c=ac.createOscillator(), cg=ac.createGain(), tc=ac.currentTime+.75; c.type='triangle'; c.frequency.setValueAtTime(880,tc); c.frequency.exponentialRampToValueAtTime(1760,tc+.4);
+      cg.gain.setValueAtTime(.0001,tc); cg.gain.exponentialRampToValueAtTime(.12,tc+.05); cg.gain.exponentialRampToValueAtTime(.0001,tc+.6); c.connect(cg); cg.connect(ac.destination); c.start(tc); c.stop(tc+.65);
+      setTimeout(function(){ try{ ac.close(); }catch(e){} },2000); }catch(e){} }
+  var knocked=false;
+  function knock(){ if(knocked) return; knocked=true; el.classList.add('knock'); knockSound(); setTimeout(finish, 950); }
+  var dr=new Image(); dr.onload=function(){ el.classList.add('imgdoor'); }; dr.src='img/door-l.png';
+  var t1=setTimeout(function(){ el.classList.add('s1'); },80);
+  var t2=setTimeout(function(){ el.classList.add('s2'); },3900);
+  var done=false;
+  function finish(){ if(done) return; done=true; try{ sessionStorage.setItem('introSeen','1'); }catch(e){}
+    el.classList.add('s2','open'); setTimeout(function(){ el.classList.add('gone'); document.documentElement.style.overflow=''; },1000);
+    setTimeout(function(){ el.remove(); },1800); }
+  function tap(e){ if(e && e.target && e.target.id==='introSkip'){ finish(); return; }
+    if(!el.classList.contains('s2')){ clearTimeout(t1); clearTimeout(t2); el.classList.add('s1','s2'); return; }
+    knock(); }
+  el.addEventListener('click', tap);
+  el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tap(); } });
+})();
+</script>
 <script>
 (function(){
   // 하단 탭 = 화면 전환
