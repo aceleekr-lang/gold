@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-22",
+ "updated": "2026-10-23",
  "markers": [
   {
    "n": "P",
@@ -217,15 +217,6 @@
   },
   {
    "n": "",
-   "x": 3299,
-   "y": 3575,
-   "name": "수유실",
-   "code": "",
-   "type": "facility",
-   "cat": "nursing"
-  },
-  {
-   "n": "",
    "x": 3235,
    "y": 339,
    "name": "음수대",
@@ -250,6 +241,42 @@
    "code": "",
    "type": "facility",
    "cat": "water"
+  },
+  {
+   "n": "",
+   "x": 4300,
+   "y": 4560,
+   "name": "수유실 (요가컬처타운)",
+   "code": "",
+   "type": "facility",
+   "cat": "nursing"
+  },
+  {
+   "n": "",
+   "x": 3299,
+   "y": 3575,
+   "name": "수유실 (파머스마켓)",
+   "code": "",
+   "type": "facility",
+   "cat": "nursing"
+  },
+  {
+   "n": "",
+   "x": 3560,
+   "y": 4260,
+   "name": "식사·휴식 공간 (그린도서관 · 외부 음식 OK)",
+   "code": "",
+   "type": "facility",
+   "cat": "meal"
+  },
+  {
+   "n": "",
+   "x": 3180,
+   "y": 3700,
+   "name": "식사·휴식 공간 (파머스마켓 밀크닉 · 외부 음식 OK)",
+   "code": "",
+   "type": "facility",
+   "cat": "meal"
   }
  ],
  "routes": [
