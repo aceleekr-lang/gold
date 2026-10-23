@@ -240,6 +240,15 @@ main section.show ~ section.show{padding-top:30px}
 .pc b{display:block; font-size:15px; line-height:1.35}
 .pc span{display:block; font-size:13px; color:var(--muted); margin-top:3px}
 .pc.wide{grid-column:1/-1} .pc.wide img{aspect-ratio:16/7}
+.pay{display:grid; gap:10px; margin-top:14px}
+.pg{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 14px; min-width:0}
+.pg h4{margin:0 0 6px; font-family:var(--font-display); font-weight:400; font-size:17px; display:flex; flex-wrap:wrap; gap:6px; align-items:baseline}
+.pg h4 small{font-size:12.5px; color:var(--sky); font-family:var(--font-body); font-weight:700}
+.pg ul{list-style:none; margin:0; padding:0}
+.pg li{display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-top:1px dashed var(--line); font-size:15px}
+.pg li:first-child{border-top:0}
+.pg li b{white-space:nowrap; color:var(--coral)}
+.pg li em{font-style:normal; font-size:12px; color:var(--muted); display:block}
 @media (max-width:360px){ .plist{grid-template-columns:1fr} }
 .etc{list-style:none; margin:14px 0 0; padding:0; display:grid; gap:8px}
 .etc li{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-size:14.5px; color:var(--muted)}
@@ -553,38 +562,39 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
       <div class="d">어린이 투어 참여권 없이 입장만 · 36개월 미만은 미션 대신 영유아 휴게소</div>
     </div>
   </div>
-  <div class="incl"><b>어린이 투어 참여권에 들어 있어요</b> — 디지털 탐험여권 · 미션 스테이션 8곳 · 기본 무료체험 · 완주 가챠 1회 · 지붕형 키즈 웨건 무료 대여(한정수량)</div>
+  <div class="incl"><b>어린이 투어 참여권에 들어 있어요</b> — 미션투어 앱 · 미션 스테이션 8곳 · 기본 무료체험 · 완주 보물 뽑기 1회 · 지붕형 키즈 웨건 무료 대여(한정수량)</div>
   <img class="banner" src="img/booth.jpg" alt="티켓부스에서 어린이 투어 참여권과 상품권을 받는 가족" width="1200" height="600" loading="lazy">
 </section>
 
 <section id="how">
   <div class="eyebrow">노는 법</div>
   <h2>디지털 미션투어, 딱 세 단계</h2>
-  <img class="banner" src="img/qr.jpg" alt="탐험본부에서 휴대폰으로 QR을 찍어 여권을 등록하는 가족" width="1200" height="600">
+  <img class="banner" src="img/qr.jpg" alt="탐험본부 티켓부스에서 참여권을 받고 휴대폰으로 미션투어 앱을 여는 가족" width="1200" height="600">
   <div class="steps">
-    <div class="step"><div class="n">1</div><div><h3>탐험본부에서 여권 만들기</h3><p>농촌테마공원 실내(1구역) 탐험본부에서 QR을 찍으면 보호자 휴대폰에 디지털 탐험여권이 생겨요. 앱 설치는 없습니다. 아이 손목에는 미아 방지 손목밴드를 채워 드려요.</p></div></div>
-    <div class="step"><div class="n">2</div><div><h3>미션 8곳 중 5곳 통과하기</h3><p>순서는 자유! 각 스테이션의 QR을 찍어 스탬프를 모읍니다. 도서관·온실·요가홀·파충류실·전시실·습지센터·자연체험학습장, 그리고 출정식 포토존.</p></div></div>
-    <div class="step"><div class="n">3</div><div><h3>보물상자 열고 가챠 뽑기</h3><p>지도가 완성되면 휴대폰에서 디지털 보물상자가 열려요. 탐험본부 가챠존에서 캡슐 1개, 전원 당첨입니다.</p></div></div>
+    <div class="step"><div class="n">1</div><div><h3>티켓부스 1에서 참여권 받고 미션투어 앱 열기</h3><p>농촌테마공원 실내(1구역) 탐험본부 옆 티켓부스 1에서 어린이 투어 참여권과 <b>입장번호 4자리</b>를 받아요. 보호자 휴대폰으로 미션투어 앱을 열어 번호를 넣으면 시작 — 앱 설치는 없어요. 바로 옆 <b>출정식 포토존</b>에서 출발 사진을 찍고 떠나요.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>미션 5곳 완료하기 — 첫 미션은 그린도서관</h3><p>첫 미션은 <b>S1 이야기 보물창고(그린도서관)</b>에서 탐험지도 머리띠 만들기. 그다음은 S3·S4·S5·S7·S8·S9 중 4곳을 마음대로 골라요. 스테이션마다 미션을 하고 <b>인증사진</b>을 찍으면 완료(사진은 내 휴대폰에만 저장). 가서 마음에 안 들면 다른 곳으로 바꿔도 돼요.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>보물 뽑기</h3><p>5곳을 모으면 짧은 설문 뒤 앱에서 뽑기 기계 손잡이를 돌려요. 뽑힌 경품은 <b>탐험본부 경품수령소</b>에서 운영요원에게 화면을 보여주고 받아요. 전원 당첨, 휴대폰 1대당 1번.</p></div></div>
   </div>
-  <div class="tip"><span class="i">💡</span><span>여권을 만들자마자 바로 옆 <b>출정식 포토존</b>에서 첫 스탬프를 받을 수 있어요. 남은 미션은 4곳만 더!</span></div>
+  <div class="tip"><span class="i">💡</span><span>미션투어 앱은 참여권을 받은 뒤 여는 <b>별도 주소</b>예요. 같은 휴대폰·같은 브라우저로 다시 들어오면 그대로 이어집니다.</span></div>
+  <a class="btn sun" href="https://bomulsum.vercel.app/" target="_blank" rel="noopener" style="margin-top:12px"><span><b>🏴‍☠️ 미션투어 앱 열기</b><br>참여권·입장번호를 받은 뒤</span></a>
 </section>
 
 <section id="missions">
   <div class="eyebrow">디지털 미션투어 · 스탬프투어</div>
-  <h2>QR 스탬프 8곳, 5곳이면 지도 완성</h2>
-  <p class="lead">어린이 투어 참여권을 끊으면 보호자 휴대폰으로 QR 스탬프를 모으는 디지털 스탬프투어예요. 앱 설치 없음, 대부분 실내라 비가 와도 그대로. 소요시간은 한 가족 기준이에요.</p>
+  <h2>미션 스테이션 8곳, 5곳이면 지도 완성</h2>
+  <p class="lead">어린이 투어 참여권을 끊으면 보호자 휴대폰의 미션투어 앱으로 지도 조각을 모으는 디지털 미션투어예요. 앱 설치 없음, 스테이션 전부 실내·지붕 시설이라 비가 와도 그대로. 출발은 S2, 첫 미션은 S1. 소요시간은 한 가족 기준이에요.</p>
   <img class="banner" src="img/mission-banner.jpg" alt="휴대폰 화면에서 보물지도 조각이 맞춰지는 모습을 보는 가족" width="1200" height="600">
   <div class="cards">
-    <article class="card"><div class="ph"><img src="img/s1.jpg" alt="그린도서관 내부"></div><div class="b"><div class="no"><i>S1</i>3구역 그린도서관</div><h3>이야기 보물창고</h3><div class="where">실내 · 상시</div><p class="what">지정 그림책에서 보물 단서(그림·문장)를 찾아 QR 퀴즈에 입력해요. 같은 자리에서 그림책 공예 유료체험도 열려요.</p><div class="meta"><span class="tag">약 10분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s2.jpg" alt="농촌테마공원 실내"></div><div class="b"><div class="no"><i>S2</i>1구역 농촌테마공원 실내</div><h3>탐험대 출정식 포토존</h3><div class="where">탐험본부 바로 옆 · 상시</div><p class="what">탐험가 포토존에서 출정 인증! 여권을 만든 직후 받는 첫 스탬프예요. 뛰지 않기·조용히 관찰하기 같은 탐험 규칙도 여기서 배워요.</p><div class="meta"><span class="tag">약 3분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s3.jpg" alt="농촌테마공원 온실"></div><div class="b"><div class="no"><i>S3</i>2구역 농촌테마공원 온실</div><h3>그림책 작가의 온실</h3><div class="where">실내 · 상시 · 작가와의 만남 10:00</div><p class="what">그림책 작가 두렁앤팜의 책이야기를 따라가는 미션. 원화 등신대를 보고, 슈링클 키링 만들기(선착순)에 참여해요.</p><div class="meta"><span class="tag">10–15분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s4.jpg" alt="요가컬처타운"></div><div class="b"><div class="no"><i>S4</i>4구역 요가컬처타운</div><h3>탐험가 훈련소</h3><div class="where">실내 · 상시</div><p class="what">매트 위에서 탐험가 자세(요가 동작) 3가지를 따라 하고 균형을 10초 버티면 통과. 안전요원이 함께 있어요.</p><div class="meta"><span class="tag">약 5분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s5.jpg" alt="파충류실"></div><div class="b"><div class="no"><i>S5</i>5구역 파충류실</div><h3>신비 동물 관찰기지</h3><div class="where">실내 · 회전 입장</div><p class="what">「어떤 동물일까?」 미션지. 전시 동물을 조용히 관찰해야 풀 수 있어요. 먹이주기는 없어요. 🦎 파충류 핸들링 타임 11:00 (1회 · 동물 컨디션에 따라 조정될 수 있어요)</p><div class="meta"><span class="tag">약 7분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s7.jpg" alt="에코리움 본관 전시실"></div><div class="b"><div class="no"><i>S7</i>7구역 에코리움 본관 전시실</div><h3>숨겨진 보물의 방</h3><div class="where">실내 · 상시</div><p class="what">전시물 속에 숨은 보물 모티프 3개의 위치를 찾아요. 눈으로만 찾는 관찰 미션이라 전시물은 만지지 않아요.</p><div class="meta"><span class="tag">약 10분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s8.jpg" alt="습지 전시로에서 비밀문양을 찾는 아이들"></div><div class="b"><div class="no"><i>S8</i>8구역 고산습지센터</div><h3>습지 암호 탐험로</h3><div class="where">실내 · 상시</div><p class="what">센터 곳곳에 숨은 비밀문양 스티커를 찾아 문양 조합을 QR 퀴즈에 입력하는 암호 해독 미션.</p><div class="meta"><span class="tag">약 10분</span><span class="tag in">실내</span></div></div></article>
-    <article class="card"><div class="ph"><img src="img/s9.jpg" alt="바람의정원 체험 모습"></div><div class="b"><div class="no"><i>S9</i>9구역 자연체험학습장</div><h3>바람의정원</h3><div class="where">실내·야외 · 프로그램별 회차</div><p class="what">색종이 프로펠러를 만들어 날리면 스탬프! 탐조 투어(11·13·15시, 회차 10명)와 씨앗 놀이, 누구나수선소도 열려요.</p><div class="meta"><span class="tag">10–20분</span><span class="tag in">실내</span><span class="tag out">야외</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s1.jpg" alt="그린도서관 내부"></div><div class="b"><div class="no"><i>S1</i>3구역 그린도서관</div><h3>이야기 보물창고</h3><div class="where">실내 · 상시</div><p class="what"><b>첫 번째 미션(고정)</b> — 나만의 탐험지도 머리띠를 만들어 쓰고 인증사진! 같은 건물에 실내 공연장·식사 공간·유료체험 부스 2가 있어요.</p><div class="meta"><span class="tag">약 15분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s2.jpg" alt="농촌테마공원 실내"></div><div class="b"><div class="no"><i>S2</i>1구역 농촌테마공원 실내</div><h3>탐험대 출정식 포토존</h3><div class="where">탐험본부 바로 옆 · 상시</div><p class="what"><b>출발 지점</b>(미션 수에는 안 들어가요) — 참여권을 받은 직후 탐험복 친구들과 출발 사진을 찍고 탐험 시작! 뛰지 않기·조용히 관찰하기 같은 탐험 규칙도 여기서 배워요.</p><div class="meta"><span class="tag">약 3분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s3.jpg" alt="농촌테마공원 온실"></div><div class="b"><div class="no"><i>S3</i>2구역 농촌테마공원 온실</div><h3>그림책 작가의 온실</h3><div class="where">실내 · 상시 · 작가와의 만남 10:00</div><p class="what">그림책 작가 두렁앤팜의 책이야기를 따라가는 미션. 원화 등신대를 보고, 24절기 슈링클스 키링 만들기(800개·선착순)에 참여해요. 나만의 동화책 만들기는 게릴라 이벤트(200개).</p><div class="meta"><span class="tag">10–15분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s4.jpg" alt="요가컬처타운"></div><div class="b"><div class="no"><i>S4</i>4구역 요가컬처타운</div><h3>탐험가 훈련소</h3><div class="where">실내 · 상시</div><p class="what">요가로 몸을 튼튼하게! 선생님을 따라 탐험가 자세를 잡고 인증사진을 찍으면 완료. 전원 체험 · 무료체험 몽글몽글 아로마 키링(400개·선착순).</p><div class="meta"><span class="tag">약 5분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s5.jpg" alt="파충류실"></div><div class="b"><div class="no"><i>S5</i>5구역 파충류실</div><h3>신비 동물 관찰기지</h3><div class="where">실내 · 회전 입장</div><p class="what">특별한 색의 친구 찾기 — 온몸이 하얀 알비노 뱀을 찾아 사진 찍고 퀴즈를 맞히면 통과(틀리면 다시 도전). 무료체험 「나만의 반려동물 만들기」(800개·선착순)도 여기서. 먹이주기는 없어요. 🦎 파충류 핸들링 타임 11:00 (1회 · 동물 컨디션에 따라 조정될 수 있어요)</p><div class="meta"><span class="tag">약 7분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s7.jpg" alt="에코리움 본관 전시실"></div><div class="b"><div class="no"><i>S7</i>7구역 에코리움 본관 전시실</div><h3>숨겨진 보물의 방</h3><div class="where">실내 · 상시</div><p class="what">숨겨진 동물을 찾아라 — 전시실에 숨은 고양이 1·강아지 1·곰 3마리를 찾아 한 마리씩 사진에 담으면 완료. 나만의 캐릭터 만들기는 게릴라 이벤트(무료·불시 진행)예요.</p><div class="meta"><span class="tag">약 10분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s8.jpg" alt="습지 전시로에서 비밀문양을 찾는 아이들"></div><div class="b"><div class="no"><i>S8</i>8구역 고산습지센터</div><h3>습지 암호 탐험로</h3><div class="where">실내 · 상시</div><p class="what">난이도 ★★★ — 센터 안에 숨은 그림 단서판 ①~④를 찾고, 그림 이름의 첫 글자를 이어 네 글자 암호를 풀어요. 인증사진 없이 암호만 맞히면 통과.</p><div class="meta"><span class="tag">약 10분</span><span class="tag in">실내</span></div></div></article>
+    <article class="card"><div class="ph"><img src="img/s9.jpg" alt="바람의정원 체험 모습"></div><div class="b"><div class="no"><i>S9</i>9구역 자연체험학습장</div><h3>바람의정원</h3><div class="where">실내(교육관) · 프로그램별 회차</div><p class="what">무료 체험(선착순) 또는 유료 체험 하나를 골라 하고, 만든 작품과 인증사진! 무료: 종이 프로펠러(300개)·가을 열매놀이(10분, 회당 5명)·티셔츠 파피스트리(30분, 회당 5명) / 유료: 우드 새모빌 5,000원(페이백 2,000원). ☔ 실내 프로그램만 진행.</p><div class="meta"><span class="tag">10–20분</span><span class="tag in">실내</span><span class="tag out">야외</span></div></div></article>
   </div>
-  <div class="reward"><img src="img/gacha.jpg" alt="디지털 보물상자가 열리는 연출"><div class="b"><h3>완주 보상 · 가챠</h3><p>5곳을 통과하면 휴대폰에서 보물상자가 열리고, 탐험본부 가챠존에서 캡슐을 뽑아요. 그림책·문구·씨앗 키트·탐험대 스티커·밀양 간식 중 하나, 꽝 없이 전원 당첨.</p></div></div>
+  <div class="reward"><img src="img/gacha.jpg" alt="디지털 보물상자가 열리는 연출"><div class="b"><h3>완주 보상 · 가챠</h3><p>5곳을 통과하면 앱에서 뽑기 기계 손잡이를 돌려요. 씨앗 연필·만두 몰랑이·소형 몰랑이·동화책 중 하나, 꽝 없이 전원 당첨. 경품은 탐험본부 경품수령소에서 받아요(휴대폰 1대당 1번, 형제·자매는 종이 참여권을 보여주면 추가 뽑기).</p></div></div>
 </section>
 
 <section id="map">
@@ -607,7 +617,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   </div>
   <div class="ibox" id="ibox" hidden></div>
   <div class="zones">
-    <div class="zone" role="button" tabindex="0" data-z="1"><i>1</i><div><b>농촌테마공원 실내</b><span>탐험본부 · 영유아 휴게소 · 웨건 대여 · 티켓부스 1(어린이 투어 참여권 판매·수령·페이백)</span></div></div>
+    <div class="zone" role="button" tabindex="0" data-z="1"><i>1</i><div><b>농촌테마공원 실내</b><span>탐험본부 · 영유아 휴게소 · 🍼 수유실 · 웨건 대여 · 티켓부스 1(어린이 투어 참여권 판매·수령·페이백)</span></div></div>
     <div class="zone" role="button" tabindex="0" data-z="2"><i>2</i><div><b>농촌테마공원 온실</b><span>S3 그림책 작가의 온실</span></div></div>
     <div class="zone" role="button" tabindex="0" data-z="3"><i>3</i><div><b>그린도서관</b><span>S1 이야기 보물창고 · 실내 공연장(공연·레크·이벤트) · 티켓부스 2 · 🍱 식사·휴식(외부 음식 OK)</span></div></div>
     <div class="zone" role="button" tabindex="0" data-z="4"><i>4</i><div><b>요가컬처타운</b><span>S4 탐험가 훈련소 · 🍼 수유실</span></div></div>
@@ -639,10 +649,10 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <h3>그린도서관 실내 공연장 <small>사회자 진행 · 우천 변경</small></h3>
     <div class="row" data-s="11:00" data-e="11:30"><div class="t">11:00</div><div class="p"><b>벌룬 앤 매직</b><span>오프닝 공연 · 풍선아트와 매직쇼</span></div><div class="l">그린도서관</div></div>
     <div class="row" data-s="11:30" data-e="12:35"><div class="t">11:30</div><div class="p"><b>레크레이션 타임 ①</b><span>사회자와 가족 참여 게임</span></div><div class="l">그린도서관</div></div>
-    <div class="row" data-s="12:35" data-e="13:00"><div class="t">12:35</div><div class="p"><b>불닭볶음면 천천히 먹기 1회</b><span>어른 참가 · 가장 천천히 다 먹는 부모가 우승</span></div><div class="l">그린도서관</div></div>
+    <div class="row" data-s="12:35" data-e="13:00"><div class="t">12:35</div><div class="p"><b>불닭볶음면 천천히 먹기 1회</b><span>어른 참가 · 회당 6명 · <a href="https://bul-mocha.vercel.app/" target="_blank" rel="noopener">예약하기</a></span></div><div class="l">그린도서관</div></div>
     <div class="row" data-s="13:00" data-e="13:30"><div class="t">13:00</div><div class="p"><b>키즈댄스</b><span>어린이 공연</span></div><div class="l">그린도서관</div></div>
     <div class="row" data-s="13:30" data-e="14:50"><div class="t">13:30</div><div class="p"><b>레크레이션 타임 ②</b><span>사회자와 가족 참여 게임</span></div><div class="l">그린도서관</div></div>
-    <div class="row" data-s="14:50" data-e="15:40"><div class="t">14:50</div><div class="p"><b>불닭볶음면 천천히 먹기 2회</b><span>어른 참가 · 현장 접수 10명</span></div><div class="l">그린도서관</div></div>
+    <div class="row" data-s="14:50" data-e="15:40"><div class="t">14:50</div><div class="p"><b>불닭볶음면 천천히 먹기 2회</b><span>어른 참가 · 회당 6명 · <a href="https://bul-mocha.vercel.app/" target="_blank" rel="noopener">예약하기</a></span></div><div class="l">그린도서관</div></div>
     <div class="row" data-s="15:40" data-e="16:10"><div class="t">15:40</div><div class="p"><b>레크레이션 타임 ③</b><span>솜사탕쇼 전 분위기 올리기</span></div><div class="l">그린도서관</div></div>
     <div class="row" data-s="16:10" data-e="16:50"><div class="t">16:10</div><div class="p"><b>솜사탕쇼</b><span>피날레 · 대형 솜사탕 퍼포먼스와 관객 참여</span></div><div class="l">그린도서관</div></div>
   </div>
@@ -658,12 +668,6 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <div class="row" data-s="11:00" data-e="11:20"><div class="t">11:00</div><div class="p"><b>핸들링 타임 (1회)</b><span>사육사와 함께 파충류 가까이 보기·만져보기</span></div><div class="l">파충류실</div></div>
     <p class="small" style="padding:6px 14px 10px; color:var(--muted); font-size:13.5px">🦎 동물 컨디션에 따라 시간이 조정되거나 쉬어 갈 수 있어요.</p>
   </div>
-  <div class="tt" id="ttBird">
-    <h3>탐조 투어 · 9구역 바람의정원 <small>회차 10명 선착순</small></h3>
-    <div class="row" data-s="11:00" data-e="11:30"><div class="t">11:00</div><div class="p"><b>1회차</b><span>단장천변 산책로 15–20분 + 만들기</span></div><div class="l">현장 접수</div></div>
-    <div class="row" data-s="13:00" data-e="13:30"><div class="t">13:00</div><div class="p"><b>2회차</b><span>단장천변 산책로 15–20분 + 만들기</span></div><div class="l">현장 접수</div></div>
-    <div class="row" data-s="15:00" data-e="15:30"><div class="t">15:00</div><div class="p"><b>3회차</b><span>단장천변 산책로 15–20분 + 만들기</span></div><div class="l">현장 접수</div></div>
-  </div>
   <p class="ttnote" id="ttNote">행사 당일에는 지금 진행 중인 프로그램이 표시돼요. 우천으로 공연·이벤트는 모두 그린도서관 실내에서 진행합니다.</p>
 </section>
 
@@ -678,23 +682,35 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <div class="big">현금으로 결제하면 <em>50%</em>를<br>밀양사랑상품권으로 바로 돌려드려요</div>
     <p class="note" style="margin:6px 0 10px">준비된 페이백 재원이 다 쓰이면 그날 페이백은 끝나요 — 일찍 오면 유리해요.</p>
     <ul>
-      <li><i>🎨</i><span>프리미엄 유료체험 <b>5,000~10,000원</b> — 종목과 가격은 현장에서 안내해요.</span></li>
+      <li><i>🎨</i><span>유료체험 <b>4,000~10,000원</b> 9종 — 아래 목록을 확인하세요. 우드 새모빌만 페이백 2,000원이에요.</span></li>
       <li><i>🎫</i><span>유료체험 티켓부스(2·3)에서 접수하면 그 자리에서 상품권을 드려요. 상품권은 행사장 안 유료체험·플프마켓·먹거리존 어디서나, 그리고 밀양 가맹점에서 쓸 수 있어요.</span></li>
       <li><i>💳</i><span>유료체험은 <b>현금·계좌이체·밀양사랑상품권</b> 모두 받아요(카드는 안 돼요). 페이백은 <b>현금·계좌이체로 결제할 때만</b> — 상품권으로 내면 규정상 페이백이 없어요. 어린이 투어 참여권 없이도 체험만 따로 할 수 있어요.</span></li>
       <li><i>🎟️</i><span><b>어린이 투어 참여권도 페이백!</b> 티켓부스 1에서 어린이 투어 참여권을 받을 때 3,000원을 상품권으로 드려요(현장 구매·사전예매 동일)(어린이 투어 참여권 1장당 1회).</span></li>
     </ul>
-    <div class="plist" aria-label="유료체험 목록">
-      <div class="pc"><img src="img/p1.jpg" alt="" loading="lazy"><div><b>① 그림책 배지·키링 만들기</b><span>그린도서관 · 부스 2</span></div></div>
-      <div class="pc"><img src="img/p2.jpg" alt="" loading="lazy"><div><b>② 나만의 그림책 만들기</b><span>그린도서관 · 부스 2</span></div></div>
-      <div class="pc"><img src="img/p3.jpg" alt="" loading="lazy"><div><b>③ 책갈피·스탬프 북마크</b><span>그린도서관 · 부스 2</span></div></div>
-      <div class="pc"><img src="img/p5.jpg" alt="" loading="lazy"><div><b>④ 우드 새모빌·솔방울 둥지</b><span>바람의정원 · 부스 3</span></div></div>
-      <div class="pc wide"><img src="img/p6.jpg" alt="" loading="lazy"><div><b>⑤ 플프마켓 셀러 체험</b><span>에코리움 온실 · 부스 3</span></div></div>
+    <div class="pay" aria-label="유료체험 목록">
+      <div class="pg"><h4>🏛 그린도서관 <small>티켓부스 2에서 접수</small></h4><ul><li><span>나만의 별 무드등 만들기</span><b>10,000원</b></li><li><span>보물발굴하자</span><b>4,000원</b></li></ul></div>
+      <div class="pg"><h4>🌿 10구역 에코리움 온실 · 플프마켓 <small>티켓부스 3에서 접수</small></h4><ul><li><span>하바리움</span><b>6,000원</b></li><li><span>향수 방향제 만들기</span><b>4,000원</b></li><li><span>미니 마그넷 꽃병</span><b>4,000원</b></li><li><span>걱정인형 만들기</span><b>4,000원</b></li><li><span>갓 키링 만들기</span><b>4,000원</b></li><li><span>나무 DIY 체험</span><b>6,000원</b></li></ul></div>
+      <div class="pg"><h4>🍃 S9 바람의정원 <small>티켓부스 3에서 접수</small></h4><ul><li><span>우드 새모빌 <em>페이백 2,000원</em></span><b>5,000원</b></li></ul></div>
     </div>
     <div class="booths">
-      <div class="booth"><b>부스 2</b><span>그린도서관 옆 · 그림책 공예 3종</span></div>
-      <div class="booth"><b>부스 3</b><span>에코리움 온실 옆 · 플프마켓 셀러 체험</span></div>
+      <div class="booth"><b>부스 2</b><span>그린도서관 · 무드등·보물발굴 2종 접수</span></div>
+      <div class="booth"><b>부스 3</b><span>에코리움 온실 옆 · 플프마켓 6종 + 바람의정원 새모빌 접수</span></div>
       <div class="booth"><b>부스 1</b><span>탐험본부 옆 · 어린이 투어 참여권 현장 구매 전용(유료체험 접수 없음)</span></div>
     </div>
+  </div>
+</section>
+
+<section id="free">
+  <div class="eyebrow">무료체험 · 참여권이 있으면 전부 무료</div>
+  <h2>무료체험은 선착순, 준비 수량이 끝나면 마감</h2>
+  <div class="pay" aria-label="무료체험 목록">
+    <div class="pg"><h4>🏛 그린도서관 (S1)</h4><ul><li><span>나만의 탐험지도 머리띠 만들기</span><b>800개</b></li></ul></div>
+    <div class="pg"><h4>📖 농촌테마공원 온실 (S3)</h4><ul><li><span>24절기 슈링클스 키링 만들기</span><b>800개</b></li><li><span>나만의 동화책 만들기 <em>게릴라 이벤트</em></span><b>200개</b></li></ul></div>
+    <div class="pg"><h4>🧘 요가컬처타운 (S4)</h4><ul><li><span>몽글몽글 아로마 키링</span><b>400개</b></li></ul></div>
+    <div class="pg"><h4>🦎 파충류실 (S5)</h4><ul><li><span>나만의 반려동물 만들기</span><b>800개</b></li></ul></div>
+    <div class="pg"><h4>🏺 에코리움 본관 전시실 (S7)</h4><ul><li><span>나만의 캐릭터 만들기 <em>게릴라 이벤트 · 시간은 비밀</em></span><b>무료</b></li></ul></div>
+    <div class="pg"><h4>🍃 S9 교육관 · 바람의정원</h4><ul><li><span>종이 프로펠러 만들기</span><b>300개</b></li><li><span>가을 열매놀이 <em>10분 · 회당 5명</em></span><b>200명</b></li><li><span>티셔츠 파피스트리 <em>30분 · 회당 5명</em></span><b>50개</b></li></ul></div>
+    <div class="pg"><h4>🌿 10구역 에코리움 온실 · 플프마켓</h4><ul><li><span>동물 가면 만들기</span><b>800개</b></li></ul></div>
   </div>
 </section>
 
@@ -705,17 +721,17 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
     <div class="m wide"><img src="img/p1.jpg" alt="실내 영유아 휴게소" loading="lazy"><div class="b"><h3>영유아 휴게소 <span class="w">1구역 농촌테마공원 실내</span></h3><p>탐험본부 옆, 유아 동반 가족이 쉬어 가는 실내 쉼터. 매트에서 기저귀 갈고 잠시 숨 돌리세요. ☔ 잔디 플레이그라운드는 우천으로 쉬어요.</p></div></div>
     <div class="pm"><img src="img/harvest.jpg" alt="가족 참여 게임" loading="lazy"><div class="b"><h3>레크레이션 타임</h3><div class="w">그린도서관 실내 · 11:30 / 13:30 / 15:40</div><p>사회자와 함께하는 가족 참여 게임. 참가 가족에게 농산물 선물, 우승 가족에게 특별 선물! ☔ 수확왕 결정전(잔디)은 우천으로 열리지 않아요.</p></div></div>
     <div class="pm"><img src="img/cinema.jpg" alt="에코리움 본관 대형 LED 화면" loading="lazy"><div class="b"><h3>영화 상영관</h3><div class="w">6구역 본관 LED · 하루 4회</div><p>토이 스토리 1~4편 무료 상영. 관람권 없이 자유롭게 들어오고 나갈 수 있어요. 계단식 관람석이라 통로에는 앉지 않아요.</p></div></div>
-    <div class="pm"><img src="img/slow.jpg" alt="긴 테이블에서 천천히 먹기 대결을 하는 어른들" loading="lazy"><div class="b"><h3>불닭볶음면 천천히 먹기</h3><div class="w">그린도서관 실내 · 12:35 / 14:50</div><p>어른 참가, 회당 현장 접수 10명. 가장 천천히 끝까지 다 먹는 부모가 우승! 빨리 먹기는 반칙, 물과 우유는 준비돼 있어요.</p></div></div>
+    <div class="pm"><img src="img/slow.jpg" alt="긴 테이블에서 천천히 먹기 대결을 하는 어른들" loading="lazy"><div class="b"><h3>불닭볶음면 천천히 먹기</h3><div class="w">그린도서관 실내 · 12:35 / 14:50</div><p>어른 참가, 회당 6명 + 대기 3명 — 예약 앱에서 신청(그린도서관 배너 QR). 가장 천천히 끝까지 다 먹는 부모가 우승! 빨리 먹기는 반칙, 물과 우유는 준비돼 있어요.</p><a class="btn sun" href="https://bul-mocha.vercel.app/" target="_blank" rel="noopener" style="margin-top:10px;display:inline-flex">🌶️ 불닭 대결 참여 예약하기</a></div></div>
     <div class="pm"><img src="img/food-tent.jpg" alt="지붕 부스에서 간식을 받는 아이들" loading="lazy"><div class="b"><h3>먹거리존</h3><div class="w">14구역 · 그린도서관 옆 지붕 부스</div><p>어린이 먹거리와 간단한 식사. 지역 업체가 준비하고, 상품권도 받아요. 비 오는 날엔 그린도서관 안에서 편하게 드세요.</p></div></div>
     <div class="pm"><img src="img/reptile-handling.jpg" alt="사육사와 함께 하얀 뱀을 만져보는 아이들" loading="lazy"><div class="b"><h3>파충류 핸들링 타임</h3><div class="w">5구역 파충류실 · 11:00 (1회)</div><p>사육사와 함께 파충류를 가까이 보고 조심스럽게 만져봐요. 🦎 동물 컨디션에 따라 시간이 조정되거나 쉬어 갈 수 있어요.</p></div></div>
     <div class="pm"><img src="img/wagon-roof.jpg" alt="지붕이 달린 웨건에 탄 아이들" loading="lazy"><div class="b"><h3>지붕형 키즈 웨건</h3><div class="w">1구역 탐험본부 옆 · 10대 선착순</div><p>비 가리개가 달린 웨건을 어린이 투어 참여권 가족에게 무료로 빌려드려요. 신분증 보관 또는 보증금.</p></div></div>
   </div>
   <ul class="etc">
-    <li><b>플프마켓</b> 10구역 에코리움 온실 — 핸드메이드·키즈용품 판매와 셀러 체험, 페이백 상품권 사용 가능</li>
+    <li><b>플프마켓</b> 10구역 에코리움 온실 — 핸드메이드·키즈용품 판매, 유료체험 6종(티켓부스 3)·무료 동물 가면 만들기, 페이백 상품권 사용 가능</li>
     <li><b>지붕형 키즈 웨건 무료 대여</b> 1구역 탐험본부 옆 — 어린이 투어 참여권 가족, 한정수량 10대 선착순(비 가리개 달린 웨건), 신분증 보관 또는 보증금</li>
     <li><b>영유아 휴게소</b> 1구역 농촌테마공원 실내 — 36개월 미만 동반 가족 쉼터, 매트</li>
     <li><b>🍱 식사·휴식 공간</b> 그린도서관 · 파머스마켓 밀크닉 — 앉아서 쉬고 밥 먹을 수 있어요, 외부 음식(도시락) OK</li>
-    <li><b>🍼 수유실</b> 요가컬처타운 · 파머스마켓 — 기저귀 교환·수유</li>
+    <li><b>🍼 수유실</b> 농촌테마공원 실내(탐험본부) · 요가컬처타운 · 파머스마켓 — 기저귀 교환·수유</li>
   </ul>
 </section>
 
@@ -724,12 +740,12 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   <h2>오기 전에 궁금한 것들</h2>
   <div class="faq">
     <details open><summary>☔ 10/24 비 예보인데 행사 하나요?</summary><p>네, 그대로 열려요! 비가 와도 즐겁게 놀 수 있는 실내형 가족이벤트예요. 프로그램의 90% 이상이 8개 건물 실내에서 진행돼요. 미션 스테이션 8곳·영화·작가존·플프마켓은 평소대로, 공연 3회와 레크레이션·이벤트 타임은 그린도서관 실내 공연장으로 옮겼어요. 잔디에서 하던 수확왕 결정전·플레이그라운드만 운영하지 않고, 바람의정원은 실내 프로그램만 진행합니다. 우산과 갈아 신을 양말 하나면 충분해요.</p></details>
-    <details><summary>앱을 설치해야 하나요?</summary><p>아니요. 보호자 휴대폰 카메라로 QR만 찍으면 바로 탐험여권이 열려요. 인터넷만 되면 됩니다.</p></details>
-    <details><summary>어른도 미션을 할 수 있나요?</summary><p>네. 어린이 투어 참여권(10,000원 · 사전예매 30% 할인 7,000원)을 끊으면 어른도 똑같이 디지털 미션투어를 하고 가챠·웨건 같은 혜택을 받아요. 어린이 투어 참여권 없이 동행만 하는 어른은 무료입장으로 공연·영화·플프마켓·먹거리존을 즐기고, 불닭볶음면 천천히 먹기 대결에는 참가할 수 있어요. 어린이 투어 참여권은 한 사람당 한 장, 여권과 가챠도 각각이에요.</p></details>
+    <details><summary>앱을 설치해야 하나요?</summary><p>아니요. 보호자 휴대폰 브라우저로 미션투어 앱 주소(QR)를 열고 티켓부스에서 받은 입장번호 4자리만 넣으면 돼요. 인터넷만 되면 됩니다. 같은 휴대폰·같은 브라우저로 이어서 하세요.</p></details>
+    <details><summary>어른도 미션을 할 수 있나요?</summary><p>네. 어린이 투어 참여권(10,000원 · 사전예매 30% 할인 7,000원)을 끊으면 어른도 똑같이 디지털 미션투어를 하고 가챠·웨건 같은 혜택을 받아요. 어린이 투어 참여권 없이 동행만 하는 어른은 무료입장으로 공연·영화·플프마켓·먹거리존을 즐기고, 불닭볶음면 천천히 먹기 대결에는 참가할 수 있어요. 어린이 투어 참여권은 한 사람당 한 장, 뽑기도 참여권 1장당 1번이에요(한 휴대폰으로 여러 장이면 경품수령소에서 종이 참여권 확인 후 추가 뽑기).</p></details>
     <details><summary>상품권 페이백은 어떻게 받나요?</summary><p>두 가지예요. ① 어린이 투어 참여권을 티켓부스 1에서 받을 때 현장 구매·사전예매 모두 3,000원을 밀양사랑상품권으로 드려요(어린이 투어 참여권 1장당 1회, 어른이 산 어린이 투어 참여권도 똑같이). ② 유료체험은 현금·계좌이체 결제액의 50%를 티켓부스 2·3에서 바로 드려요(상품권으로 결제한 건은 규정상 페이백이 없어요). 둘 다 준비된 재원이 다 쓰이면 그날 페이백은 끝나고, 상품권을 받은 어린이 투어 참여권은 환불이 안 돼요. 받은 상품권은 행사장 안 유료체험·플프마켓·먹거리존 어디서나, 밀양 가맹점에서도 쓸 수 있어요.</p></details>
     <details><summary>현장에서는 어떻게 결제하나요?</summary><p>현장 구매 어린이 투어 참여권은 <b>카드만</b> 받아요(현금은 안 돼요). 반대로 유료체험은 현금·계좌이체·밀양사랑상품권으로 받고 카드는 안 돼요. 플프마켓·먹거리존도 상품권을 받아요. 미리 사면 <a href="https://m.booking.naver.com/booking/12/bizes/1191013/items/8129527" target="_blank" rel="noopener">네이버 예약 사전예매</a>로 30% 할인!</p></details>
     <details><summary>사전예매 환불은 어떻게 되나요?</summary><p>행사일 7일 전까지 100%, 3일 전까지 90%, 1일 전까지 70%, 당일은 환불이 어려워요. 날씨 등 주최 측 사유로 취소되면 전액 환불합니다.</p></details>
-    <details><summary>아이를 잃어버리면요?</summary><p>모든 아이가 번호가 적힌 손목밴드를 차요. 가까운 운영요원에게 말하면 탐험본부에서 번호로 바로 확인하고 안내방송을 합니다. 밴드에는 연락처가 적혀 있지 않아요.</p></details>
+    <details><summary>아이를 잃어버리면요?</summary><p>가까운 운영요원에게 바로 말씀해 주세요. 탐험본부(1구역) 응급·안내 데스크로 모이고 안내방송을 합니다. 아이에게 보호자 휴대폰 번호를 미리 알려 주거나 옷에 적어 두면 더 빨라요.</p></details>
   </div>
 
   <div id="way" class="addr">
@@ -801,7 +817,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
 (function(){
   // 하단 탭 = 화면 전환
   var tabs = document.querySelectorAll('.tabs a');
-  var PANE = {home:['home','tickets','how'], missions:['missions'], map:['map'], time:['time'], info:['pay','more','info']};
+  var PANE = {home:['home','tickets','how'], missions:['missions'], map:['map'], time:['time'], info:['pay','free','more','info']};
   var secPane = {}; for (var t in PANE) PANE[t].forEach(function(id){ secPane[id]=t; });
   function paneOf(id){ if(PANE[id]) return id; if(secPane[id]) return secPane[id]; var el=document.getElementById(id); var sec=el&&el.closest('main section'); return sec?secPane[sec.id]:null; }
   function showTab(t, scrollId){
@@ -843,8 +859,8 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   var TYPEL={mission:'미션 스테이션',lawn:'공연·놀이',cinema:'영화 상영관',market:'플프마켓',food:'먹거리존',booth:'티켓부스',parking:'주차장'};
   var COL={mission:'#D9453A',lawn:'#2A6FD1',cinema:'#2E8B57',market:'#7A3CAB',food:'#0F8A8A',booth:'#E58A00',parking:'#1C2A3A',facility:'#2A6FD1'};
   var CHIPS=[['all','전체'],['basic','기본'],['mission','미션'],['booth','티켓부스'],['toilet','🚻 화장실'],['nursing','🍼 수유실'],['aid','➕ 응급·안내'],['water','🚰 음수대'],['wagon','🛒 웨건 대여'],['meal','🍱 식사·휴식'],['rest','🪑 휴게'],['smoke','🚬 흡연'],['etc','📍 기타'],['foodm','먹거리·마켓'],['parking','P 주차장·동선']];
-  var DESC={toilet:'가장 가까운 화장실이에요.',nursing:'기저귀 교환·수유를 할 수 있는 공간이에요. 요가컬처타운·파머스마켓 두 곳.',aid:'다친 아이, 미아, 분실물은 여기로 오세요. 안내방송도 여기서 해요.',water:'물을 마시거나 물통을 채울 수 있어요.',rest:'그늘에서 잠시 쉬어 가는 곳이에요.',meal:'앉아서 쉬고 밥 먹을 수 있는 실내 공간이에요. 도시락 등 외부 음식도 괜찮아요(조리는 안 돼요).',smoke:'지정 흡연구역이에요. 행사장 안 다른 곳은 금연입니다.',wagon:'어린이 투어 참여권 가족에게 지붕형 키즈 웨건을 무료로 빌려드려요(10대 한정·선착순).',etc:''};
-  var BOOTH={'1':'어린이 투어 참여권을 사고 받는 곳(카드결제만 가능해요). 받을 때 상품권 페이백(3,000원, 현장·사전예매 동일)도 드려요. 유료체험 접수는 하지 않아요.','2':'유료체험 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).','3':'유료체험 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).'};
+  var DESC={toilet:'가장 가까운 화장실이에요.',nursing:'기저귀 교환·수유를 할 수 있는 공간이에요. 농촌테마공원 실내·요가컬처타운·파머스마켓 세 곳.',aid:'다친 아이, 미아, 분실물은 여기로 오세요. 안내방송도 여기서 해요.',water:'물을 마시거나 물통을 채울 수 있어요.',rest:'그늘에서 잠시 쉬어 가는 곳이에요.',meal:'앉아서 쉬고 밥 먹을 수 있는 실내 공간이에요. 도시락 등 외부 음식도 괜찮아요(조리는 안 돼요).',smoke:'지정 흡연구역이에요. 행사장 안 다른 곳은 금연입니다.',wagon:'어린이 투어 참여권 가족에게 지붕형 키즈 웨건을 무료로 빌려드려요(10대 한정·선착순).',etc:''};
+  var BOOTH={'1':'어린이 투어 참여권을 사고 받는 곳(카드결제만 가능해요). 받을 때 상품권 페이백(3,000원, 현장·사전예매 동일)도 드려요. 유료체험 접수는 하지 않아요.','2':'나만의 별 무드등·보물발굴하자 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).','3':'플프마켓 6종·바람의정원 새모빌 접수 · 현금 결제액의 50%를 밀양사랑상품권으로 바로 돌려드려요(상품권 결제는 페이백 없음 · 재원 소진 시 종료).'};
   var imap=document.getElementById('imap'), inner=document.getElementById('imapInner'), mkWrap=document.getElementById('imk'), svg=document.getElementById('isvg'), ibox=document.getElementById('ibox');
   var places=[], routes=[], k=1, tx=0, ty=0, filter='all', sel=-1;
   function catOf(m){ if(m.type==='facility') return m.cat||'etc'; if(m.type==='food'||m.type==='market') return 'foodm'; return m.type; }
@@ -853,7 +869,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   function visible(m){ if(filter==='all'||filter==='basic') return true; if(filter==='parking') return m.type==='parking'; return catOf(m)===filter; }
   function kmin(){ var W=imap.clientWidth,H=imap.clientHeight; return Math.max(1,H/(W*4944/7998)); }
   function apply(){ var W=imap.clientWidth,H=imap.clientHeight,ih=W*4944/7998; if(!W||!H) return; k=Math.max(kmin(),Math.min(6,k)); tx=Math.min(0,Math.max(W-W*k,tx)); ty=Math.min(0,Math.max(H-ih*k,ty)); inner.style.transform='translate('+tx+'px,'+ty+'px) scale('+k+')'; inner.style.setProperty('--ik',(1/k).toFixed(4)); if(places.length&&(k>=1.8)!==imap.classList.contains('z2')) refilter(); }
-  function home(){ var W=imap.clientWidth,H=imap.clientHeight,ih=W*4944/7998; if(!W||!H) return; k=kmin(); tx=0; ty=(H-ih*k)/2; apply(); }
+  function home(){ var W=imap.clientWidth,H=imap.clientHeight,ih=W*4944/7998; if(!W||!H) return; lastW=W; k=kmin(); tx=0; ty=(H-ih*k)/2; apply(); }
   function zoomAt(nk,cx,cy){ nk=Math.max(kmin(),Math.min(6,nk)); var r=nk/k; tx=cx-(cx-tx)*r; ty=cy-(cy-ty)*r; k=nk; apply(); }
   function build(){
     mkWrap.innerHTML=''; svg.innerHTML='';
@@ -867,7 +883,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   function refilter(){ var z2=k>=1.8; imap.classList.toggle('z2',z2); var btns=mkWrap.children; for(var i=0;i<btns.length;i++){ var m=places[i]; var small=(m.type==='facility'||m.type==='booth'); var hide=small&&!z2&&filter==='basic'&&i!==sel; btns[i].classList.toggle('hide',hide); btns[i].classList.toggle('dim',!visible(m)); btns[i].classList.toggle('on',i===sel); } var show=filter==='all'||filter==='basic'||filter==='parking'; svg.style.display=show?'':'none'; }
   function select(i,focus){ sel=i; refilter(); var m=places[i]; if(!m){ ibox.hidden=true; return; } ibox.hidden=false; var c=m.type==='facility'?'#fff':(COL[m.type]||'#999'); var zc=(m.type!=='booth'&&m.type!=='facility'&&m.type!=='parking')?document.querySelector('.zone[data-z="'+m.n+'"] span'):null; var desc=m.type==='facility'?(DESC[m.cat]||''):m.type==='booth'?(BOOTH[m.n]||''):m.type==='parking'?'주차 무료 · 가득 차면 안내요원이 임시주차를 안내해요.':(zc?zc.textContent:''); var extra=(desc?'<span>'+desc+'</span>':'')+(m.type==='mission'?'<a href="#missions">미션 내용 보기</a>':'');
     ibox.innerHTML='<div class="ic" style="background:'+c+';'+(m.type==='facility'?'border:2px solid #2A6FD1;color:#111':'')+'">'+iconOf(m)+'</div><div><b>'+m.name+'</b><span>'+labelOf(m)+(m.code?' · '+m.code:'')+'</span>'+extra+'</div>';
-    if(focus){ var W=imap.clientWidth,H=imap.clientHeight,nk=Math.max(k,2.6); k=nk; tx=W/2-(m.x/7998)*W*nk; ty=H/2-(m.y/4944)*H*nk; apply(); imap.scrollIntoView({block:'center',behavior:'smooth'}); } }
+    if(focus){ var W=imap.clientWidth,H=imap.clientHeight,nk=Math.max(k,2.6); k=nk; var ih=W*4944/7998; tx=W/2-(m.x/7998)*W*nk; ty=H/2-(m.y/4944)*ih*nk; apply(); imap.scrollIntoView({block:'center',behavior:'smooth'}); } }
   // 칩
   var chips=document.getElementById('chips');
   function buildChips(){ chips.innerHTML=''; CHIPS.forEach(function(c){ var n=(c[0]==='all'||c[0]==='basic')?places.length:places.filter(function(m){return c[0]==='parking'?m.type==='parking':catOf(m)===c[0];}).length; if(c[0]!=='all'&&c[0]!=='basic'&&n===0) return; var b=document.createElement('button'); b.type='button'; b.setAttribute('role','tab'); b.setAttribute('aria-selected',filter===c[0]); b.textContent=c[1]+((c[0]!=='all'&&c[0]!=='basic')?' '+n:''); b.onclick=function(){ filter=c[0]; sel=-1; ibox.hidden=true; buildChips(); refilter(); if(c[0]!=='all'&&c[0]!=='basic'){ var first=places.findIndex(visible); if(first>=0&&n===1) select(first,true); else { home(); } } else { home(); } }; chips.appendChild(b); }); }
@@ -892,7 +908,7 @@ footer{margin-top:34px; padding-top:18px; border-top:1px solid var(--line); font
   document.getElementById('zin').onclick=function(){ zoomAt(k*1.4,imap.clientWidth/2,imap.clientHeight/2); };
   document.getElementById('zout').onclick=function(){ zoomAt(k/1.4,imap.clientWidth/2,imap.clientHeight/2); };
   document.getElementById('zreset').onclick=home;
-  window.addEventListener('resize',home);
+  var lastW=0; function onResize(){ var W=imap.clientWidth; if(!W) return; if(!lastW){ lastW=W; home(); return; } if(W!==lastW){ var r=W/lastW; tx*=r; ty*=r; lastW=W; } apply(); } window.addEventListener('resize',onResize);
   document.querySelectorAll('.zone[data-z]').forEach(function(z){ z.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); z.click(); } }); z.addEventListener('click',function(){ var i=places.findIndex(function(m){ return m.type!=='booth'&&m.type!=='facility'&&m.type!=='parking'&&m.n===z.dataset.z; }); document.querySelectorAll('.zone').forEach(function(x){ x.classList.toggle('on',x===z); }); if(i>=0){ filter='all'; buildChips(); select(i,true); } }); });
   fetch('places.json',{cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){ places=d.markers||[]; routes=d.routes||[]; build(); buildChips(); home(); }).catch(function(){ document.getElementById('imapHint').textContent='지도 데이터를 불러오지 못했어요. 새로고침해 주세요.'; });
 })();

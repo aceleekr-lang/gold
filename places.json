@@ -277,6 +277,15 @@
    "code": "",
    "type": "facility",
    "cat": "meal"
+  },
+  {
+   "n": "",
+   "x": 4620,
+   "y": 2640,
+   "name": "수유실 (농촌테마공원 실내 · 탐험본부)",
+   "code": "",
+   "type": "facility",
+   "cat": "nursing"
   }
  ],
  "routes": [
